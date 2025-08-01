@@ -60,6 +60,10 @@ if tabURL contains "chatgpt.com" or tabURL contains "claude.ai" then
 
 您可以根据需要任意组合或只保留一个。
 
+## 🔧 高级示例
+
+本仓库还包含 `aichatboardcaster_anotherexample.alfredworkflow`，这是另一个工作流示例，演示了如何在单个 Alfred 工作流中使用多个 snippet 绑定多个不同的脚本，从而实现更复杂的自动化工作流。
+
 ## 📝 许可
 
 本项目采用 MIT 许可。
@@ -134,6 +138,10 @@ if tabURL contains "chatgpt.com" or tabURL contains "claude.ai" then
 ```
 
 You can customize this list as needed, or leave only one to target a single platform.
+
+## 🔧 Advanced Example
+
+This repository also includes `aichatboardcaster_anotherexample.alfredworkflow`, which is another workflow example demonstrating how to use multiple snippets bound to different scripts within a single Alfred workflow, enabling more complex automation workflows.
 
 ## 📝 License
 
