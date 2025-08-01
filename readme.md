@@ -1,65 +1,72 @@
+好的，完全没问题。根据您的最新需求，我们需要对 `README` 文件进行一次重要的更新，以反映现在项目包含两个独立的脚本、新的自定义选项以及一个关键的Chrome设置要求。
+
+下面是为您准备好的、包含了所有新信息的中英文修订版。
+
+-----
+
+### 中文修订版 (Chinese Version)
+
 # AI Chat Broadcaster 🚀
 
-一个基于AppleScript的**Alfred工作流**，可以将一条消息广播到在Chrome浏览器中打开的多个AI聊天平台。
+一个基于AppleScript的**Alfred工作流**，包含两个独立的脚本，分别用于将消息广播到Chrome浏览器中的多个AI聊天平台，以及将指令发送到终端应用。
 
 ## ✨ 核心功能
 
-  - **🎯 多平台操作**: 脚本目前可以在Chrome浏览器中打开的ChatGPT, Claude, Gemini, Google AI Studio, Hugging Face, LMArena等标签页上工作。您可以修改此脚本以支持更多AI聊天网站。
-  - **🤖 自动化流程**: 自动在多个标签页间切换、聚焦输入框、清空内容、并点击发送按钮。
-  - **🔄 Alfred集成**: 配合Alfred的Snippet（文本片段）功能使用，可以将您输入的简短关键词（例如 `-go`）替换为剪贴板中的完整内容。
-  - **🖥️ 批量处理**: 自动识别并处理所有预先配置好的AI聊天标签页。
-
-## 🎬 演示
+  - **🎯 Chrome广播**: `aichatboardcaster-chrome.applescript` 脚本可以同时在Chrome中的多个AI标签页上工作（如ChatGPT, Claude, Gemini等）。
+  - **⌨️ 终端控制**: `aichatboardcaster-terminal.applescript` 脚本可以将指令发送到您指定的终端应用（如“终端”或“iTerm2”）。
+  - **🔧 高度可定制**: 您可以轻松修改脚本，决定是进行“全体广播”还是仅“精确弹射”到某一个或某几个特定的AI工具。
+  - **🔄 Alfred集成**: 配合Alfred的Snippet功能，可将简短关键词替换为剪贴板中的完整内容并自动执行。
 
 ## 🔧 使用前提
 
-  - macOS 操作系统
-  - **Google Chrome** 浏览器
-  - Alfred 并激活Powerpack功能
-  - 在“系统设置 \> 隐私与安全性 \> 自动化”中授予Alfred控制Chrome的权限
+1.  **macOS** 操作系统。
+2.  **Google Chrome** 浏览器。
+3.  **Alfred** 并激活Powerpack功能。
+4.  在“系统设置 \> 隐私与安全性 \> 自动化”中授予Alfred控制Chrome、终端以及System Events的权限。
+5.  **【重要】开启Chrome的AppleScript权限**:
+      * 在Chrome中，点击屏幕最上方的菜单栏。
+      * 转到 **查看 → 开发者 → 允许 Apple 事件中的 JavaScript**，并确保该选项已被勾选。
 
 ## 📦 安装与配置
 
 1.  **导入工作流**:
 
-      * 下载 `aichatboardcaster.alfredworkflow` 文件。
-      * 双击该文件，将其导入到Alfred中。
+      * 下载 `aichatboardcaster.alfredworkflow` 文件并双击导入到Alfred中。这个工作流可能包含一个或两个“Run Script”动作的模板。
 
-2.  **配置Alfred Snippet**:
+2.  **配置脚本动作**:
+
+      * 在Alfred工作流编辑器中，创建您需要的“Run Script”动作。
+      * 将 `aichatboardcaster-chrome.applescript` 的内容粘贴到一个动作中，并为其绑定一个触发器（例如，**关键字 `-go`**）。
+      * 将 `aichatboardcaster-terminal.applescript` 的内容粘贴到另一个动作中，并为其绑定另一个触发器（例如，**关键字 `=term`**）。
+
+3.  **配置Alfred Snippet**:
 
       * 打开 Alfred 设置 → Features → Snippets。
-      * 创建一个新的Snippet，内容如下：
-          * **Name**: AI Prompt (或任何您喜欢的名字)
-          * **Keyword**: `-go` (这个关键词必须与脚本中 `keystroke` 的命令完全一致)
-          * **Snippet**: `{datetime:long} {clipboard}`
+      * 为您的触发关键词（如 `-go` 和 `=term`）创建一个对应的Snippet。
+      * **Snippet内容**: `{datetime:long}{clipboard}`
 
 ## 🚀 使用方法
 
-1.  **准备消息**: 复制您想发送的消息到系统剪贴板。
-2.  **准备浏览器**: 在Chrome中打开一个或多个受支持的AI聊天网站的标签页。
-3.  **运行脚本**: 在macOS的**任何地方**（例如桌面、文本编辑器等），直接输入您的关键词 `-go` 并按空格。
-4.  **自动执行**: Alfred会捕捉到您的输入并触发展开，然后脚本会自动完成后续所有操作（切换标签页、粘贴内容、点击发送）。
+  - **广播到Chrome**: 复制消息到剪贴板，然后在任何地方输入 `-go` 并按空格，脚本将自动在Chrome中所有符合条件的AI页面上执行任务。
+  - **发送到终端**: 复制指令到剪贴板，然后在任何地方输入 `=term` 并按空格，脚本将自动在您指定的终端应用中执行命令。
 
-## ⚙️ 技术说明
+## ⚙️ 定制目标AI工具
 
-### 按钮识别策略
+您可以轻松修改 `aichatboardcaster-chrome.applescript` 脚本，使其只对特定的AI工具生效，实现“精确弹射”而不是“全体广播”。
 
-脚本通过一个预设的CSS选择器列表来识别不同网站上的“发送”按钮。您可以编辑工作流中的脚本，轻松扩展这个列表以支持更多网站。
+打开脚本，找到这一行：
 
-```javascript
-var sendButtonSelectors = [
-    'button[aria-label="Run"]',                  // Google AI Studio
-    'button[data-testid="send-button"]',           // ChatGPT
-    'button[aria-label="Send message"]',         // Gemini
-    'button[aria-label="Send Message"]',         // Claude
-    'button[type="submit"]:not([disabled])',       // LMArena
-    'button[class*="send"]'                        // 通用后备方案
-];
+```applescript
+if tabURL contains "aistudio.google.com" or tabURL contains "chatgpt.com" or tabURL contains "claude.ai" or tabURL contains "gemini.google.com" then
 ```
 
-## 🤝 贡献
+**修改示例**: 如果您只想让它在ChatGPT和Claude上工作，只需删除其他部分：
 
-欢迎通过提交Pull Request来为这个项目做出贡献。
+```applescript
+if tabURL contains "chatgpt.com" or tabURL contains "claude.ai" then
+```
+
+您可以根据需要任意组合或只保留一个。
 
 ## 📝 许可
 
@@ -69,69 +76,73 @@ var sendButtonSelectors = [
 
 🤖 *为AI驱动的生产力而生*
 
+-----
+
+-----
+
+### 英文修订版 (English Version)
 
 # AI Chat Broadcaster 🚀
 
-An AppleScript-based **Alfred Workflow** that broadcasts a single message to multiple AI chat platforms open in the Chrome browser.
+An AppleScript-based **Alfred Workflow** containing two separate scripts for broadcasting messages to multiple AI chat platforms in Google Chrome and sending commands to your terminal application.
 
 ## ✨ Core Features
 
-  - **🎯 Multi-Platform Operation**: The script currently works with tabs in Chrome for ChatGPT, Claude, Gemini, Google AI Studio, Hugging Face, and LMArena. You can modify the script to support additional AI chat websites.
-  - **🤖 Automated Actions**: Automatically switches between tabs, focuses the input field, clears existing content, and clicks the send button.
-  - **🔄 Alfred Integration**: Best used with Alfred's Snippet feature, which replaces your short typed keyword (e.g., `-go`) with the content from your clipboard.
-  - **🖥️ Batch Processing**: Automatically finds and processes all pre-configured AI chat tabs.
-
-## 🎬 Demo
+  - **🎯 Chrome Broadcasting**: The `aichatboardcaster-chrome.applescript` script can operate simultaneously on multiple AI tabs in Chrome (e.g., ChatGPT, Claude, Gemini).
+  - **⌨️ Terminal Control**: The `aichatboardcaster-terminal.applescript` script can send commands to your specified terminal app (e.g., Terminal or iTerm2).
+  - **🔧 Highly Customizable**: You can easily modify the script to "broadcast to all" or to "target specific" AI tools.
+  - **🔄 Alfred Integration**: Works with Alfred's Snippet feature to replace a short keyword with your full clipboard content and execute automatically.
 
 ## 🔧 Prerequisites
 
-  - macOS operating system
-  - **Google Chrome** browser
-  - Alfred with the Powerpack
-  - Permissions granted in `System Settings > Privacy & Security > Automation` for Alfred to control Google Chrome.
+1.  A **macOS** operating system.
+2.  **Google Chrome** browser.
+3.  **Alfred** with the Powerpack.
+4.  Permissions granted in `System Settings > Privacy & Security > Automation` for Alfred to control Chrome, your terminal app, and System Events.
+5.  **[IMPORTANT] Enable AppleScript in Chrome**:
+      * In Google Chrome, click on the menu bar at the very top of the screen.
+      * Navigate to **View → Developer → Allow JavaScript from Apple Events** and ensure this option is checked.
 
 ## 📦 Installation & Configuration
 
 1.  **Import the Workflow**:
 
-      * Download the `aichatboardcaster.alfredworkflow` file.
-      * Double-click the file to import it into Alfred.
+      * Download the `aichatboardcaster.alfredworkflow` file and double-click it to import it into Alfred. The workflow may contain templates for one or both "Run Script" actions.
 
-2.  **Configure the Alfred Snippet**:
+2.  **Configure Script Actions**:
+
+      * In the Alfred workflow editor, create the "Run Script" actions you need.
+      * Paste the content of `aichatboardcaster-chrome.applescript` into one action and connect it to a trigger (e.g., the **keyword `-go`**).
+      * Paste the content of `aichatboardcaster-terminal.applescript` into another action and connect it to a different trigger (e.g., the **keyword `=term`**).
+
+3.  **Configure the Alfred Snippet**:
 
       * Open Alfred Preferences → Features → Snippets.
-      * Create a new snippet with the following:
-          * **Name**: AI Prompt (or any name you prefer)
-          * **Keyword**: `-go` (this must exactly match the `keystroke` command in the script)
-          * **Snippet**: `{datetime:long} {clipboard}`
+      * Create a corresponding snippet for your trigger keyword (e.g., `-go`).
+      * **Snippet Content**: `{datetime:long}{clipboard}`
 
 ## 🚀 Usage
 
-1.  **Prepare your message**: Copy the message you want to send to your clipboard.
-2.  **Prepare your browser**: Open one or more of the supported AI chat tabs in Chrome.
-3.  **Run the script**: Type your keyword `-go` **anywhere** in macOS (e.g., on your desktop, in a text editor) and press space.
-4.  **Automation in Action**: Alfred will detect your keyword, expand the snippet, and the script will then automatically handle the rest (switching tabs, pasting content, and clicking send).
+  - **Broadcast to Chrome**: Copy a message to your clipboard, then type `-go` anywhere and press space. The script will automatically perform its tasks on all eligible AI pages in Chrome.
+  - **Send to Terminal**: Copy a command to your clipboard, then type `=term` anywhere and press space. The script will automatically execute the command in your terminal app.
 
-## ⚙️ How It Works
+## ⚙️ Customize Target AI Tools
 
-### Button Detection Strategy
+You can easily modify the `aichatboardcaster-chrome.applescript` to target only specific AI tools instead of broadcasting to all.
 
-The script uses a pre-defined list of CSS selectors to identify the 'Send' button on various websites. You can easily edit the script within the workflow to extend this list and support more sites.
+Open the script and find this line:
 
-```javascript
-var sendButtonSelectors = [
-    'button[aria-label="Run"]',                  // Google AI Studio
-    'button[data-testid="send-button"]',           // ChatGPT
-    'button[aria-label="Send message"]',         // Gemini
-    'button[aria-label="Send Message"]',         // Claude
-    'button[type="submit"]:not([disabled])',       // LMArena
-    'button[class*="send"]'                        // Generic Fallback
-];
+```applescript
+if tabURL contains "aistudio.google.com" or tabURL contains "chatgpt.com" or tabURL contains "claude.ai" or tabURL contains "gemini.google.com" then
 ```
 
-## 🤝 Contributing
+**Example Modification**: If you only want it to work on ChatGPT and Claude, simply remove the other conditions:
 
-Contributions are welcome\! Please feel free to submit a Pull Request.
+```applescript
+if tabURL contains "chatgpt.com" or tabURL contains "claude.ai" then
+```
+
+You can customize this list as needed, or leave only one to target a single platform.
 
 ## 📝 License
 
