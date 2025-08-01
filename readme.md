@@ -1,11 +1,3 @@
-好的，完全没问题。根据您的最新需求，我们需要对 `README` 文件进行一次重要的更新，以反映现在项目包含两个独立的脚本、新的自定义选项以及一个关键的Chrome设置要求。
-
-下面是为您准备好的、包含了所有新信息的中英文修订版。
-
------
-
-### 中文修订版 (Chinese Version)
-
 # AI Chat Broadcaster 🚀
 
 一个基于AppleScript的**Alfred工作流**，包含两个独立的脚本，分别用于将消息广播到Chrome浏览器中的多个AI聊天平台，以及将指令发送到终端应用。
@@ -80,7 +72,6 @@ if tabURL contains "chatgpt.com" or tabURL contains "claude.ai" then
 
 -----
 
-### 英文修订版 (English Version)
 
 # AI Chat Broadcaster 🚀
 
