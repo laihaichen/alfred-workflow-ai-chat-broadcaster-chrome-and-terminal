@@ -28,18 +28,18 @@
 2.  **配置脚本动作**:
 
       * 在Alfred工作流编辑器中，创建您需要的“Run Script”动作。
-      * 将 `aichatboardcaster-chrome.applescript` 的内容粘贴到一个动作中，并为其绑定一个触发器（例如，**关键字 `-go`**）。
+      * 将 `aichatboardcaster-chrome.applescript` 的内容粘贴到一个动作中，并为其绑定一个触发器（例如，**关键字 `=go`**）。
       * 将 `aichatboardcaster-terminal.applescript` 的内容粘贴到另一个动作中，并为其绑定另一个触发器（例如，**关键字 `=term`**）。
 
 3.  **配置Alfred Snippet**:
 
       * 打开 Alfred 设置 → Features → Snippets。
-      * 为您的触发关键词（如 `-go` 和 `=term`）创建一个对应的Snippet。
+      * 为您的触发关键词（如 `=go` 和 `=term`）创建一个对应的Snippet。
       * **Snippet内容**: `{datetime:long}{clipboard}`
 
 ## 🚀 使用方法
 
-  - **广播到Chrome**: 复制消息到剪贴板，然后在任何地方输入 `-go` 并按空格，脚本将自动在Chrome中所有符合条件的AI页面上执行任务。
+  - **广播到Chrome**: 复制消息到剪贴板，然后在任何地方输入 `=go` 并按空格，脚本将自动在Chrome中所有符合条件的AI页面上执行任务。
   - **发送到终端**: 复制指令到剪贴板，然后在任何地方输入 `=term` 并按空格，脚本将自动在您指定的终端应用中执行命令。
 
 ## ⚙️ 定制目标AI工具
@@ -103,18 +103,18 @@ An AppleScript-based **Alfred Workflow** containing two separate scripts for bro
 2.  **Configure Script Actions**:
 
       * In the Alfred workflow editor, create the "Run Script" actions you need.
-      * Paste the content of `aichatboardcaster-chrome.applescript` into one action and connect it to a trigger (e.g., the **keyword `-go`**).
+      * Paste the content of `aichatboardcaster-chrome.applescript` into one action and connect it to a trigger (e.g., the **keyword `=go`**).
       * Paste the content of `aichatboardcaster-terminal.applescript` into another action and connect it to a different trigger (e.g., the **keyword `=term`**).
 
 3.  **Configure the Alfred Snippet**:
 
       * Open Alfred Preferences → Features → Snippets.
-      * Create a corresponding snippet for your trigger keyword (e.g., `-go`).
+      * Create a corresponding snippet for your trigger keyword (e.g., `=go`).
       * **Snippet Content**: `{datetime:long}{clipboard}`
 
 ## 🚀 Usage
 
-  - **Broadcast to Chrome**: Copy a message to your clipboard, then type `-go` anywhere and press space. The script will automatically perform its tasks on all eligible AI pages in Chrome.
+  - **Broadcast to Chrome**: Copy a message to your clipboard, then type `=go` anywhere and press space. The script will automatically perform its tasks on all eligible AI pages in Chrome.
   - **Send to Terminal**: Copy a command to your clipboard, then type `=term` anywhere and press space. The script will automatically execute the command in your terminal app.
 
 ## ⚙️ Customize Target AI Tools
