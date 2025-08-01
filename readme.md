@@ -1,6 +1,12 @@
 # AI Chat Broadcaster 🚀
 
-一个基于AppleScript的**Alfred工作流**，包含两个独立的脚本，分别用于将消息广播到Chrome浏览器中的多个AI聊天平台，以及将指令发送到终端应用。
+一个基于AppleScript的**Alfred工作流**，包含两个简单的脚本，用于批量向多个AI聊天平台发送消息。
+
+**基本想法**：在任何能输入文字的地方（记事本、编辑器、文档等）输入指定的快捷短语（如`=go`），脚本会首先定位到特定的AI聊天界面，然后模拟物理键盘输入来触发Alfred的Snippet展开功能。剪贴板内容作为模板的参数，用户可以通过Snippet自定义任何需要的模板prompt。
+
+**可能的用途**：如果您经常需要向多个AI聊天界面发送相同的内容，这个脚本可以减少重复的复制粘贴操作。您可以设计简单的模板（如"请解释{clipboard}"、"请翻译{clipboard}"等），一次性发送给多个聊天机器人。
+
+**适用情况**：当您觉得在浏览器标签页间切换比较麻烦，或者想要充分利用已有的AI聊天服务订阅时，这个小工具可能会有些帮助。不过它的限制较多，需要macOS和Alfred，可能只适合特定的使用场景。
 
 ## ✨ 核心功能
 
@@ -79,7 +85,13 @@ if tabURL contains "chatgpt.com" or tabURL contains "claude.ai" then
 
 # AI Chat Broadcaster 🚀
 
-An AppleScript-based **Alfred Workflow** containing two separate scripts for broadcasting messages to multiple AI chat platforms in Google Chrome and sending commands to your terminal application.
+An AppleScript-based **Alfred Workflow** containing two simple scripts for batch-sending messages to multiple AI chat platforms.
+
+**Basic Idea**: Type a designated shortcut phrase (like `=go`) anywhere you can input text (Notepad, editors, documents, etc.), and the script will first locate specific AI chat interfaces, then simulate physical keyboard input to trigger Alfred's Snippet expansion. The clipboard content serves as a parameter for the template, and users can customize any needed template prompts through Snippets.
+
+**Possible Use**: If you often need to send the same content to multiple AI chat interfaces, this script might reduce repetitive copy-pasting. You can design simple templates (like "Please explain {clipboard}", "Please translate {clipboard}", etc.) and send them to multiple chatbots at once.
+
+**When It Might Help**: When switching between browser tabs feels tedious, or when you want to make better use of your existing AI chat service subscriptions. However, it has many limitations, requires macOS and Alfred, and may only suit specific use cases.
 
 ## ✨ Core Features
 
