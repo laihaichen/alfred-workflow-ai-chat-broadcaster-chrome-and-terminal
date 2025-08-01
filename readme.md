@@ -40,8 +40,8 @@ An AppleScript-based **Alfred Workflow** containing two simple scripts for batch
 3.  **Configure the Alfred Snippet**:
 
       * Open Alfred Preferences → Features → Snippets.
-      * Create a corresponding snippet for your trigger keyword (e.g., `=go`).
-      * **Snippet Content**: `{datetime:long}{clipboard}` — You can customize this to create a unique prompt structure. Just remember that the keystroke command in the AppleScript must be updated to match your new keyword.
+      * Create a corresponding snippet with a keyword that matches what the script will type (e.g., `-go` for the `=go` trigger).
+      * **Snippet Content**: `{datetime:long}{clipboard}` — You can customize this to create a unique prompt structure. Just remember that the keystroke command in the AppleScript must be updated to match your snippet's keyword.
       * **Advanced Usage**: You can enable Alfred's clipboard history feature to use `{clipboard:0}` as the prompt and `{clipboard:1}` as the command prefix, then trigger broadcasts with any designed shortcut phrase (e.g., `=01`).
 
 ## 🚀 Usage
@@ -125,8 +125,8 @@ This project is licensed under the MIT License.
 3.  **配置Alfred Snippet**:
 
       * 打开 Alfred 设置 → Features → Snippets。
-      * 为您的触发关键词（如 `=go` 和 `=term`）创建一个对应的Snippet。
-      * **Snippet内容**: `{datetime:long}{clipboard}`——你可以任意修改这里的内容使得其变成订制prompt，唯一需要注意的是脚本里的keystroke也要改成一样的
+      * 创建一个Snippet，其关键词要与脚本中将要输入的内容匹配（例如，为 `=go` 触发器创建 `-go` 关键词的Snippet）。
+      * **Snippet内容**: `{datetime:long}{clipboard}`——你可以任意修改这里的内容使得其变成订制prompt，唯一需要注意的是脚本里的keystroke关键词要改成和Snippet里的关键词一样
       * **高级用法**: 你可以开启Alfred中的clipboard history功能，从而实现让`{clipboard:0}`当作prompt，`{clipboard:1}`当作指令前缀，然后使用设计好的任意快捷短语（例如`=01`）触发广播
 
 ## 🚀 使用方法
