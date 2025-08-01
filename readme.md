@@ -35,7 +35,7 @@
 
       * 打开 Alfred 设置 → Features → Snippets。
       * 为您的触发关键词（如 `=go` 和 `=term`）创建一个对应的Snippet。
-      * **Snippet内容**: `{datetime:long}{clipboard}`
+      * **Snippet内容**: `{datetime:long}{clipboard}`——你可以任意修改这里的内容使得其变成订制prompt，唯一需要注意的是脚本里的keystroke也要改成一样的
 
 ## 🚀 使用方法
 
@@ -110,7 +110,7 @@ An AppleScript-based **Alfred Workflow** containing two separate scripts for bro
 
       * Open Alfred Preferences → Features → Snippets.
       * Create a corresponding snippet for your trigger keyword (e.g., `=go`).
-      * **Snippet Content**: `{datetime:long}{clipboard}`
+      * **Snippet Content**: `{datetime:long}{clipboard}`——你可以任意修改这里的内容使得其变成订制prompt，唯一需要注意的是脚本里的keystroke也要改成一样的
 
 ## 🚀 Usage
 
