@@ -14,7 +14,7 @@ try
         activate
     end tell
     
-    delay 0.3 -- 等待应用窗口切换
+    delay 0.04 -- 等待应用窗口切换
     
     -- 2. 使用 System Events 来模拟键盘输入
     tell application "System Events"
@@ -26,10 +26,10 @@ try
         -- 3. 输入指令
         -- 这里我们直接使用 `-go` 这个关键词，让Alfred去展开它
         keystroke "-go"
-        delay 0.1
+        delay 0.075
         keystroke " " -- 触发Alfred Snippet展开
         
-        delay 0.5 -- 等待Snippet展开完成
+        delay 0.15 -- 等待Snippet展开完成
         
         -- 4. 按下回车键来发送/执行命令
         key code 36 -- 'Return' (回车) 键的键码
