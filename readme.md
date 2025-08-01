@@ -23,7 +23,7 @@
 
 1.  **导入工作流**:
 
-      * 下载 `aichatboardcaster.alfredworkflow` 文件并双击导入到Alfred中。这个工作流可能包含一个或两个“Run Script”动作的模板。
+      * 下载 `aichatboardcaster.alfredworkflow` 文件并双击导入到Alfred中。这个工作流只有aichatboardcaster-chrome.applescript，但是把aichatboardcaster-terminal.applescript加进来很容易
 
 2.  **配置脚本动作**:
 
