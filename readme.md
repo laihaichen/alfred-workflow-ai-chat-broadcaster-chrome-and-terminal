@@ -98,7 +98,7 @@ An AppleScript-based **Alfred Workflow** containing two separate scripts for bro
 
 1.  **Import the Workflow**:
 
-      * Download the `aichatboardcaster.alfredworkflow` file and double-click it to import it into Alfred. The workflow may contain templates for one or both "Run Script" actions.
+      * Download the `aichatboardcaster.alfredworkflow` file and double-click it to import it into Alfred. This workflow includes the `aichatboardcaster-chrome.applescript`, and it's easy to add the terminal script yourself.
 
 2.  **Configure Script Actions**:
 
@@ -110,7 +110,7 @@ An AppleScript-based **Alfred Workflow** containing two separate scripts for bro
 
       * Open Alfred Preferences → Features → Snippets.
       * Create a corresponding snippet for your trigger keyword (e.g., `=go`).
-      * **Snippet Content**: `{datetime:long}{clipboard}`——你可以任意修改这里的内容使得其变成订制prompt，唯一需要注意的是脚本里的keystroke也要改成一样的
+      * **Snippet Content**: `{datetime:long}{clipboard}` — You can customize this to create a unique prompt structure. Just remember that the keystroke command in the AppleScript must be updated to match your new keyword.
 
 ## 🚀 Usage
 
