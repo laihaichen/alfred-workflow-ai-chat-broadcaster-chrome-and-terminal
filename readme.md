@@ -1,6 +1,6 @@
 # AI Chat Broadcaster 🚀
 
-An AppleScript-based **Alfred Workflow** containing two simple scripts for batch-sending messages to multiple AI chat platforms.
+An AppleScript-based **Alfred Workflow** containing two simple scripts for batch-sending messages to multiple AI chat platforms. You can easily extend this workflow to dozens or hundreds of scripts using different keyword triggers, freely combining custom prompts with various batch-sending targets to create complex automation workflows. The two scripts provided are basic demonstrations of this concept.
 
 **Basic Idea**: Type a designated shortcut phrase (like `=go`) anywhere you can input text (Notepad, editors, documents, etc.), and the script will first locate specific AI chat interfaces, then simulate physical keyboard input to trigger Alfred's Snippet expansion. The clipboard content serves as a parameter for the template, and users can customize any needed template prompts through Snippets.
 
@@ -67,9 +67,9 @@ if tabURL contains "chatgpt.com" or tabURL contains "claude.ai" then
 
 You can customize this list as needed, or leave only one to target a single platform.
 
-## 🔧 Advanced Example
+## 🔧 Workflow Extension Example
 
-This repository also includes `aichatboardcaster_anotherexample.alfredworkflow`, which is another workflow example demonstrating how to use multiple snippets bound to different scripts within a single Alfred workflow, enabling more complex automation workflows.
+This repository also includes `aichatboardcaster_anotherexample.alfredworkflow`, which demonstrates how to use multiple snippets bound to different scripts within a single Alfred workflow for more complex automation.
 
 ## 📝 License
 
@@ -85,7 +85,7 @@ This project is licensed under the MIT License.
 
 # AI Chat Broadcaster 🚀
 
-一个基于AppleScript的**Alfred工作流**，包含两个简单的脚本，用于批量向多个AI聊天平台发送消息。
+一个基于AppleScript的**Alfred工作流**，包含两个简单的脚本，用于批量向多个AI聊天平台发送消息。您完全可以利用Alfred工作流把这两个脚本扩展到几十上百个，并且使用不同的关键字触发器触发，将不同的自定义prompt和任何批量发送的目标自由组合，实现复杂的自动化流程。提供的两个脚本只是为了简单演示这个概念。
 
 **基本想法**：在任何能输入文字的地方（记事本、编辑器、文档等）输入指定的快捷短语（如`=go`），脚本会首先定位到特定的AI聊天界面，然后模拟物理键盘输入来触发Alfred的Snippet展开功能。剪贴板内容作为模板的参数，用户可以通过Snippet自定义任何需要的模板prompt。
 
@@ -150,9 +150,9 @@ if tabURL contains "aistudio.google.com" or tabURL contains "chatgpt.com" or tab
 if tabURL contains "chatgpt.com" or tabURL contains "claude.ai" then
 ```
 
-## 🔧 高级示例
+## 🔧 工作流扩展示例
 
-本仓库还包含 `aichatboardcaster_anotherexample.alfredworkflow`，这是另一个工作流示例，演示了如何在单个 Alfred 工作流中使用多个 snippet 绑定多个不同的脚本，从而实现更复杂的自动化工作流。
+本仓库还包含 `aichatboardcaster_anotherexample.alfredworkflow`，这是另一个工作流示例，演示了如何在单个 Alfred 工作流中使用多个 snippet 绑定多个不同的脚本，实现更复杂的自动化。
 
 ## 📝 许可
 
