@@ -46,7 +46,7 @@ An AppleScript-based **Alfred Workflow** containing two simple scripts for batch
 
 ## 🚀 Usage
 
-  - **Broadcast to Chrome**: Copy a message to your clipboard, then type `=go` anywhere and press space. The script will automatically perform its tasks on all eligible AI pages in Chrome.
+  - **Broadcast to Chrome**: Copy a message to your clipboard, then type `=go` anywhere and press space. The script will automatically perform its tasks on all eligible AI pages in Chrome. (Note: This must be typed in a text input field of other applications, not in Alfred's own search window)
   - **Send to Terminal**: Copy a command to your clipboard, then type `=term` anywhere and press space. The script will automatically execute the command in your terminal app.
 
 ## ⚙️ Customize Target AI Tools
@@ -131,7 +131,7 @@ This project is licensed under the MIT License.
 
 ## 🚀 使用方法
 
-  - **广播到Chrome**: 复制消息到剪贴板，然后在任何地方输入 `=go` 并按空格，脚本将自动在Chrome中所有符合条件的AI页面上执行任务。
+  - **广播到Chrome**: 复制消息到剪贴板，然后在任何地方输入 `=go` 并按空格，脚本将自动在Chrome中所有符合条件的AI页面上执行任务。（注意：必须在其他应用程序的文本输入框中输入，不能在Alfred的搜索窗口中输入）
   - **发送到终端**: 复制指令到剪贴板，然后在任何地方输入 `=term` 并按空格，脚本将自动在您指定的终端应用中执行命令。
 
 ## ⚙️ 定制目标AI工具
