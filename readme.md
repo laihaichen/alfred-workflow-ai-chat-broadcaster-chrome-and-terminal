@@ -36,7 +36,7 @@ An AppleScript-based **Alfred Workflow** containing two simple scripts for batch
       * In the Alfred workflow editor, create the "Run Script" actions you need.
       * Paste the content of `aichatboardcaster-chrome.applescript` into one action and connect it to a trigger (e.g., the **keyword `=go`**).
       * Paste the content of `aichatboardcaster-terminal.applescript` into another action and connect it to a different trigger (e.g., the **keyword `=term`**).
-      * **Chain Scripts Together**: If you want one trigger to execute both scripts sequentially (e.g., broadcast the same message to Chrome AI chats first, then to terminal AI agents), connect your trigger to Script 1, then connect Script 1's output to Script 2. This way, the trigger will execute Script 1, and after Script 1 completes, it will automatically trigger Script 2.
+      * **Chain Scripts Together**: If you want one trigger to execute both scripts sequentially (e.g., broadcast the same message to Chrome AI chats first, then to terminal AI agents), connect your trigger to Script 1, then connect Script 1's output to Script 2. This way, the trigger will execute Script 1, and after Script 1 completes, it will automatically trigger Script 2. Theoretically, you could chain multiple scripts (Script 1 → Script 2 → Script 3...) to send multiple rounds of prompts consecutively, but this approach may be unstable since AI response generation speed might not keep up with the script's prompt sending speed. You could try modifying the scripts to add delays and wait longer between executions.
 
 3.  **Configure the Alfred Snippet**:
 
@@ -123,7 +123,7 @@ This project is licensed under the MIT License.
       * 在Alfred工作流编辑器中，创建您需要的“Run Script”动作。
       * 将 `aichatboardcaster-chrome.applescript` 的内容粘贴到一个动作中，并为其绑定一个触发器（例如，**关键字 `=go`**）。
       * 将 `aichatboardcaster-terminal.applescript` 的内容粘贴到另一个动作中，并为其绑定另一个触发器（例如，**关键字 `=term`**）。
-      * **脚本串联执行**: 如果你希望让触发器触发两个脚本，例如你想让同一个模版消息在Chrome上的每个AI聊天框先广播一遍，然后给终端的AI agent又广播一遍，那么在Alfred工作流中，你应该让触发器连接脚本1，脚本1连接脚本2，这样触发器触发脚本1，然后脚本1执行完毕之后触发脚本2。
+      * **脚本串联执行**: 如果你希望让触发器触发两个脚本，例如你想让同一个模版消息在Chrome上的每个AI聊天框先广播一遍，然后给终端的AI agent又广播一遍，那么在Alfred工作流中，你应该让触发器连接脚本1，脚本1连接脚本2，这样触发器触发脚本1，然后脚本1执行完毕之后触发脚本2。如果在工作流中让触发器触发一个脚本，然后在工作流中将脚本1连上脚本2，脚本2连上脚本3... 理论可以实现让脚本发送完一轮prompt，紧接着开始在另一轮发送下一个prompt，然后又开始发送下一个prompt，但是我认为这是不稳定的，因为AI生成内容的速度可能跟不上脚本发prompt的速度，不过你可以试试修改脚本增加延迟，等待的久一点。
 
 3.  **配置Alfred Snippet**:
 
