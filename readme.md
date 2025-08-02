@@ -12,7 +12,7 @@ An AppleScript-based **Alfred Workflow** containing two simple scripts for batch
 
   - **🎯 Chrome Broadcasting**: The `aichatboardcaster-chrome.applescript` script can operate simultaneously on multiple AI tabs in Chrome (e.g., ChatGPT, Claude, Gemini).
   - **⌨️ Terminal Control**: The `aichatboardcaster-terminal.applescript` script can send commands to your specified terminal app (e.g., Claude Code or Gemini CLI).
-  - **🔧 Highly Customizable**: You can easily modify the script to "broadcast to all" or to "target specific" AI tools.
+  - **🔧 Highly Customizable**: You can easily modify the script to target specific AI tools, change keystroke keywords to correspond with different snippets, and customize the entire automation workflow.
   - **🔄 Alfred Integration**: Works with Alfred's Snippet feature to replace a short keyword with your full clipboard content and execute automatically.
 
 ## 🔧 Prerequisites
@@ -97,7 +97,7 @@ This project is licensed under the MIT License.
 
   - **🎯 Chrome广播**: `aichatboardcaster-chrome.applescript` 脚本可以同时在Chrome中的多个AI标签页上工作（如ChatGPT, Claude, Gemini等）。
   - **⌨️ 终端控制**: `aichatboardcaster-terminal.applescript` 脚本可以将指令发送到您指定的终端应用（Claude Code or Gemini CLI)”）。
-  - **🔧 高度可定制**: 您可以轻松修改脚本，决定是进行“全体广播”还是仅“精确弹射”到某一个或某几个特定的AI工具。
+  - **🔧 高度可定制**: 您可以轻松修改脚本，决定目标AI工具，修改keystroke关键词以对应不同的snippet，以及定制整个自动化工作流程。
   - **🔄 Alfred集成**: 配合Alfred的Snippet功能，可将简短关键词替换为剪贴板中的完整内容并自动执行。
 
 ## 🔧 使用前提
