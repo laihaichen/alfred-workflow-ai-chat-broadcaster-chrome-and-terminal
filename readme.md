@@ -69,7 +69,7 @@ You can customize this list as needed, or leave only one to target a single plat
 
 ## 📁 Repository Notes
 
-The `.alfredworkflow` files in this repository serve as the author's personal storage space. Since this is a niche project with limited visibility, the author uses it for both public and private file storage convenience.
+The `Authors_Private_Storage` folder in this repository serves as the author's personal storage space. Since this is a niche project with limited visibility, the author uses it to store personal `.alfredworkflow` and `.alfredsnippets` files for convenience.
 
 ## 📝 License
 
@@ -152,7 +152,7 @@ if tabURL contains "chatgpt.com" or tabURL contains "claude.ai" then
 
 ## 📁 仓库说明
 
-本仓库中的`.alfredworkflow`文件是作者的私人存放点。由于这是一个冷门项目，作者懒得分公私，直接用这里存放个人文件。
+本仓库中的`Authors_Private_Storage`文件夹是作者的私人存放点。由于这是一个冷门项目，作者懒得分公私，直接用这里存放个人的`.alfredworkflow`和`.alfredsnippets`文件。
 
 ## 📝 许可
 
