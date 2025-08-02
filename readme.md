@@ -67,9 +67,9 @@ if tabURL contains "chatgpt.com" or tabURL contains "claude.ai" then
 
 You can customize this list as needed, or leave only one to target a single platform.
 
-## 🔧 Workflow Extension Example
+## 📁 Repository Notes
 
-This repository also includes `aichatboardcaster_anotherexample.alfredworkflow`, which demonstrates how to use multiple snippets bound to different scripts within a single Alfred workflow for more complex automation.
+The `.alfredworkflow` files in this repository serve as the author's personal storage space. Since this is a niche project with limited visibility, the author uses it for both public and private file storage convenience.
 
 ## 📝 License
 
@@ -150,9 +150,9 @@ if tabURL contains "aistudio.google.com" or tabURL contains "chatgpt.com" or tab
 if tabURL contains "chatgpt.com" or tabURL contains "claude.ai" then
 ```
 
-## 🔧 工作流扩展示例
+## 📁 仓库说明
 
-本仓库还包含 `aichatboardcaster_anotherexample.alfredworkflow`，这是另一个工作流示例，演示了如何在单个 Alfred 工作流中使用多个 snippet 绑定多个不同的脚本，实现更复杂的自动化。
+本仓库中的`.alfredworkflow`文件是作者的私人存放点。由于这是一个冷门项目，作者懒得分公私，直接用这里存放个人文件。
 
 ## 📝 许可
 
