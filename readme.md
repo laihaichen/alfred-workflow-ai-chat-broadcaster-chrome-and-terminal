@@ -42,20 +42,13 @@ An AppleScript-based **Alfred Workflow** containing two simple scripts for batch
       * **Important Note**: Alfred workflows support multiple trigger types (hotkeys, keywords, shortcuts, file actions, etc.). Choose the trigger method that best suits your usage habits.
       * **Chain Scripts Together**: If you want one trigger to execute both scripts sequentially (e.g., broadcast the same message to Chrome AI chats first, then to terminal AI agents), connect your trigger to Script 1, then connect Script 1's output to Script 2. This way, the trigger will execute Script 1, and after Script 1 completes, it will automatically trigger Script 2. Theoretically, you could chain multiple scripts (Script 1 → Script 2 → Script 3...) to send multiple rounds of prompts consecutively, but this approach may be unstable since AI response generation speed might not keep up with the script's prompt sending speed. You could try modifying the scripts to add delays and wait longer between executions.
 
-3.  **Configure Content Templates** (Optional):
+3.  **Configure Alfred Snippet Expansion** (Required):
 
-      **Important Note**: Content template configuration is optional and depends on your chosen trigger method and content handling approach.
-      
-      **Option A - Using Alfred Snippet Expansion** (suitable for dynamic content templates):
       * Open Alfred Preferences → Features → Snippets.
       * **IMPORTANT**: Make sure to check "Automatically expand snippets by keyword" option in the Snippets settings.
       * Create a snippet with a keyword that differs from your workflow trigger (e.g., workflow uses hotkey trigger, snippet uses `-go` keyword).
       * **Snippet Content**: `{datetime:long}{clipboard}` — You can customize this to create custom prompt templates.
-      * Note: If using this method, ensure the keystroke keyword in the script matches your snippet keyword.
-      
-      **Option B - Direct Clipboard Content** (suitable for hotkey and other non-text triggers):
-      * Simply copy the content you want to send to the clipboard, then use your workflow trigger.
-      * Can be combined with Alfred's clipboard history feature for flexible multi-content usage.
+      * **Important**: The keystroke keyword in the script must match your snippet keyword, as the script uses keystroke to trigger snippet expansion.
 
 ## Usage
 
@@ -152,20 +145,13 @@ This project is licensed under the MIT License.
       * **重要提示**: Alfred工作流支持多种触发器类型（快捷键、关键字、热键、文件操作等），您可以根据使用习惯自由选择最适合的触发方式。
       * **脚本串联执行**: 如果你希望让触发器触发两个脚本，例如你想让同一个模版消息在Chrome上的每个AI聊天框先广播一遍，然后给终端的AI agent又广播一遍，那么在Alfred工作流中，你应该让触发器连接脚本1，脚本1连接脚本2，这样触发器触发脚本1，然后脚本1执行完毕之后触发脚本2。如果在工作流中让触发器触发一个脚本，然后在工作流中将脚本1连上脚本2，脚本2连上脚本3... 理论可以实现让脚本发送完一轮prompt，紧接着开始在另一轮发送下一个prompt，然后又开始发送下一个prompt，但是我认为这是不稳定的，因为AI生成内容的速度可能跟不上脚本发prompt的速度，不过你可以试试修改脚本增加延迟，等待的久一点。
 
-3.  **配置内容模板**（可选）:
+3.  **配置Alfred Snippet展开**（必需）:
 
-      **重要说明**: 内容模板配置是可选的，取决于您选择的触发方式和内容处理方式。
-      
-      **选项A - 使用Alfred Snippet展开**（适用于需要动态内容模板的场景）:
       * 打开 Alfred 设置 → Features → Snippets。
       * **重要**: 确保在Snippets设置中勾选"Automatically expand snippets by keyword"选项。
       * 创建一个Snippet，其关键词必须与工作流触发器不同（例如，工作流用快捷键触发，Snippet用 `-go` 关键词）。
       * **Snippet内容**: `{datetime:long}{clipboard}`——您可以任意修改这里的内容来创建自定义prompt模板。
-      * 注意：如果使用此方式，需要确保脚本中的keystroke关键词与Snippet关键词一致。
-      
-      **选项B - 直接使用剪贴板内容**（适用于快捷键等非文本触发器）:
-      * 直接复制要发送的内容到剪贴板，然后使用工作流触发器即可。
-      * 可配合Alfred的clipboard history功能实现多段内容的灵活使用。
+      * **重要**: 脚本中的keystroke关键词必须与Snippet关键词一致，因为脚本通过keystroke触发Snippet展开功能。
 
 ## 使用方法
 
