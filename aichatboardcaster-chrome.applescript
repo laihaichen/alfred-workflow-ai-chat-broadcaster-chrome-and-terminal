@@ -68,7 +68,6 @@ tell application "Google Chrome"
             tell application "System Events"
                 keystroke "-go" -- CUSTOMIZABLE: Change to match your Alfred snippet keyword
                 delay 0.075 -- CUSTOMIZABLE: Critical workflow balance interval
-                keystroke " "
             end tell
             
             delay 0.15 -- CUSTOMIZABLE: Snippet expansion wait time
