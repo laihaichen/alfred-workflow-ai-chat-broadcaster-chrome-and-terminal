@@ -41,7 +41,7 @@ An AppleScript-based **Alfred Workflow** containing two simple scripts for batch
 
   - **Chrome Broadcasting**: The `aichatboardcaster-chrome.applescript` script can operate simultaneously on multiple AI tabs in Chrome (e.g., ChatGPT, Claude, Gemini).
   - **Terminal Control**: The `aichatboardcaster-terminal.applescript` script can send commands to your specified terminal app (e.g., Claude Code or Gemini CLI).
-  - **Highly Customizable**: You can easily modify the script to target specific AI tools, configure various trigger methods (hotkeys, keywords, etc.), bind specific prompt templates to each script's keystroke section (using clipboard or any other available dynamic placeholders as dynamic variables), and customize the entire automation workflow.
+  - **Highly Customizable**: You can easily modify the script to target specific AI tools, configure various trigger methods (hotkeys, keywords, etc.), bind specific prompt templates to each script's keystroke section (using clipboard or any other available dynamic placeholders as dynamic variables), batch save and manage your prompt templates in Features → Snippets, and customize the entire automation workflow.
   - **Alfred Integration**: Completely based on and dependent on Alfred's workflow and snippet functionality.
 
 ## Prerequisites
@@ -135,7 +135,7 @@ This project is licensed under the MIT License.
 
   - **Chrome广播**: `aichatboardcaster-chrome.applescript` 脚本可以同时在Chrome中的多个AI标签页上工作（如ChatGPT, Claude, Gemini等）。
   - **终端控制**: `aichatboardcaster-terminal.applescript` 脚本可以将指令发送到您指定的终端应用（Claude Code or Gemini CLI)”）。
-  - **高度可定制**: 您可以轻松修改脚本，决定目标AI工具，配置各种触发方式（快捷键、关键字等），给每个脚本的keystroke部分绑定特定的prompt模版（以剪切板或任何其他可以使用的dynamic placeholder作为动态变量），以及定制整个自动化工作流程。
+  - **高度可定制**: 您可以轻松修改脚本，决定目标AI工具，配置各种触发方式（快捷键、关键字等），给每个脚本的keystroke部分绑定特定的prompt模版（以剪切板或任何其他可以使用的dynamic placeholder作为动态变量），以及在你的Features → Snippets栏目里批量保存和管理你的prompt模版，以及定制整个自动化工作流程。
   - **Alfred集成**: 完全基于和依赖Alfred的工作流和snippet功能。
 
 ## 使用前提
