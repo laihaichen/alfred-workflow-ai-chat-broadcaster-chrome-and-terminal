@@ -111,7 +111,7 @@ This project is licensed under the MIT License.
 -----
 
 # Alfred Workflow: AI Chatbot Broadcaster
-*自动化多平台AI聊天模板发送器*
+*一键触发的自动给Chrome上的AI chatbot和终端的AI agent发送prompt的AI聊天prompt自动发送器*
 
 一个基于AppleScript的**Alfred工作流**，包含两个简单的脚本，用于批量向多个AI聊天平台发送消息。您完全可以利用Alfred工作流把这两个脚本扩展到几十上百个，并且使用不同的触发器（快捷键、关键字、热键等）触发，将不同的自定义prompt和任何批量发送的目标自由组合，实现复杂的自动化流程。提供的两个脚本只是为了简单演示这个概念。
 
