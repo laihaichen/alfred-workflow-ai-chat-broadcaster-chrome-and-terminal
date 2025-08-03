@@ -1,44 +1,46 @@
 -- *****************************************************************
--- ** Terminal AI Agent Submitter v1.0                            **
--- ** 功能: 激活终端, 输入指令并按回车执行                         **
+-- ** AI Chat Broadcaster for Terminal                            **
+-- ** Function: Activate terminal, input command and execute      **
+-- ** Customizable: Terminal app name and all delays can be       **
+-- ** modified to suit different systems and applications         **
 -- *****************************************************************
 
--- ----------- 配置区域 -----------
--- 请将 "终端" 修改为您正在使用的终端应用的准确名称, 例如 "iTerm"
-property targetTerminalApp : "终端"
--- --------------------------------
+-- ----------- CUSTOMIZABLE CONFIGURATION -----------
+-- CUSTOMIZABLE: Change "Terminal" to your specific terminal app name, e.g., "iTerm"
+property targetTerminalApp : "Terminal"
+-- ------------------------------------------------
 
 try
-    -- 1. 激活目标终端应用
+    -- 1. Activate target terminal application
     tell application targetTerminalApp
         activate
     end tell
     
-    delay 0.04 -- 等待应用窗口切换
+    delay 0.04 -- CUSTOMIZABLE: Application window switching delay
     
-    -- 2. 使用 System Events 来模拟键盘输入
+    -- 2. Use System Events to simulate keyboard input
     tell application "System Events"
-        -- 确保目标应用是当前最前端的应用
+        -- Ensure target application is frontmost
         tell process targetTerminalApp
             set frontmost to true
         end tell
         
-        -- 3. 输入指令
-        -- 这里我们直接使用 `-go` 这个关键词，让Alfred去展开它
+        -- 3. Input command
+        -- CUSTOMIZABLE: Change "-go" to match your Alfred snippet keyword
         keystroke "-go"
-        delay 0.075
-        keystroke " " -- 触发Alfred Snippet展开
+        delay 0.075 -- CUSTOMIZABLE: Keystroke interval delay
+        keystroke " " -- Trigger Alfred Snippet expansion
         
-        delay 0.15 -- 等待Snippet展开完成
+        delay 0.15 -- CUSTOMIZABLE: Snippet expansion completion wait time
         
-        -- 4. 按下回车键来发送/执行命令
-        key code 36 -- 'Return' (回车) 键的键码
+        -- 4. Press Enter key to send/execute command
+        key code 36 -- Return key code
         
     end tell
     
     return "Command sent to " & targetTerminalApp
     
 on error errMsg
-    display notification "脚本在操作终端时出错: " & errMsg with title "执行错误"
+    display notification "Script error when operating terminal: " & errMsg with title "Execution Error"
     return "Error: " & errMsg
 end try

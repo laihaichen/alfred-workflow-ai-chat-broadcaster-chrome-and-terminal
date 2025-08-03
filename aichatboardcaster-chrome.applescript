@@ -1,27 +1,31 @@
 -- *****************************************************************
--- ** Universal AI Submitter v6.0 (Perfect Balance Edition)         **
--- ** 功能: 聚焦, 输入, 展开, 等待按钮激活, 然后自动点击发送        **
--- ** 完美: 找到了最佳临界点，最快且稳定的完美平衡              **
+-- ** AI Chat Broadcaster for Chrome                              **
+-- ** Function: Focus input field, expand snippet, wait for      **
+-- ** button activation, then automatically click send           **
+-- ** Customizable: All delay parameters and target URLs can     **
+-- ** be modified to suit different hardware and requirements    **
 -- *****************************************************************
 
--- 主脚本
+-- Main script execution
 tell application "Google Chrome"
-    -- 1. 激活Chrome
+    -- 1. Activate Chrome browser
     activate
     
-    -- 2. 收集所有符合条件的AI聊天页面
+    -- 2. Collect all eligible AI chat pages
+    -- CUSTOMIZABLE: Add or remove URLs in the condition below to target specific AI platforms
     set aiPages to {}
     try
         repeat with w_index from 1 to (count of windows)
             repeat with t_index from 1 to (count of tabs of window w_index)
                 set tabURL to URL of tab t_index of window w_index
+                -- CUSTOMIZABLE: Modify this condition to target specific AI platforms
                 if tabURL contains "aistudio.google.com" or tabURL contains "chatgpt.com" or tabURL contains "claude.ai" or tabURL contains "gemini.google.com" or tabURL contains "huggingface.co" or tabURL contains "lmarena.ai" then
                     set end of aiPages to {win:w_index, tab:t_index}
                 end if
             end repeat
         end repeat
     on error
-        -- 如果获取URL出错，则忽略
+        -- Ignore errors when retrieving URLs
     end try
     
     if (count of aiPages) is 0 then
@@ -40,11 +44,12 @@ tell application "Google Chrome"
                 set index to 1
             end tell
             
-            -- 确保Chrome在前台
+            -- Ensure Chrome is in foreground
             tell application "System Events" to set frontmost of process "Google Chrome" to true
-            delay 0.02 -- 终极窗口切换
+            delay 0.02 -- CUSTOMIZABLE: Window switching delay (adjust for slower systems)
             
-            -- 4. 使用JavaScript来聚焦输入框
+            -- 4. Use JavaScript to focus input field
+            -- CUSTOMIZABLE: Add selectors for additional AI platforms
             tell tab tab_idx of window win_idx
                 execute javascript "
                     var el = document.querySelector('.ql-editor, #prompt-textarea, textarea:not([readonly]), div[contenteditable=\"true\"]');
@@ -57,18 +62,19 @@ tell application "Google Chrome"
                 "
             end tell
             
-            delay 0.03 -- JS聚焦终极优化
+            delay 0.03 -- CUSTOMIZABLE: JavaScript focus optimization delay
             
-            -- 5. 使用系统级按键模拟输入和展开
+            -- 5. Use system-level keystrokes for input and expansion
             tell application "System Events"
-                keystroke "-go"
-                delay 0.075 -- 【临界点】workflow完美平衡间隔
+                keystroke "-go" -- CUSTOMIZABLE: Change to match your Alfred snippet keyword
+                delay 0.075 -- CUSTOMIZABLE: Critical workflow balance interval
                 keystroke " "
             end tell
             
-            delay 0.15 -- 展开等待临界点优化
+            delay 0.15 -- CUSTOMIZABLE: Snippet expansion wait time
             
-            -- 6. 【功能升级】使用带“智能等待”的JS来查找并点击发送按钮
+            -- 6. Use JavaScript with intelligent waiting to find and click send button
+            -- CUSTOMIZABLE: Add selectors for additional AI platforms
             tell tab tab_idx of window win_idx
                 execute javascript "
                     var sendButtonSelectors = [
@@ -76,28 +82,27 @@ tell application "Google Chrome"
                         'button[data-testid=\"send-button\"]',           // ChatGPT
                         'button[aria-label=\"Send message\"]',         // Gemini
                         'button[aria-label=\"Send Message\"]',         // Claude
-                        'button[type=\"submit\"]:not([disabled])',       // lmarena.ai (直接匹配非禁用状态)
-                        'button.btn-widget[type=\"submit\"]',            // 另一个通用按钮
-                        'button[class*=\"send\"]'                        // 通用class包含send的按钮
+                        'button[type=\"submit\"]:not([disabled])',       // lmarena.ai
+                        'button.btn-widget[type=\"submit\"]',            // Generic widget button
+                        'button[class*=\"send\"]'                        // Generic buttons with 'send' in class
                     ];
 
                     function tryClickSendButton() {
                         for (var i = 0; i < sendButtonSelectors.length; i++) {
                             var btn = document.querySelector(sendButtonSelectors[i]);
-                            // 再次确认按钮存在且不是被禁用的状态
+                            // Confirm button exists and is not disabled
                             if (btn && !btn.disabled) {
                                 btn.click();
-                                return true; // 成功点击，返回true
+                                return true; // Successful click
                             }
                         }
-                        return false; // 未找到或仍被禁用，返回false
+                        return false; // Not found or still disabled
                     }
 
-                    // 每50毫秒尝试点击一次，最多尝试20次（即1秒）- 终极优化
+                    // CUSTOMIZABLE: Retry interval (50ms) and max retries (20 = 1 second)
                     var retries = 0;
                     var maxRetries = 20;
                     var interval = setInterval(function() {
-                        // 如果成功点击，或者重试次数超限，则停止
                         if (tryClickSendButton() || retries >= maxRetries) {
                             clearInterval(interval);
                         }
@@ -106,17 +111,17 @@ tell application "Google Chrome"
                 "
             end tell
             
-            delay 0.03 -- 发送完成终极等待
+            delay 0.03 -- CUSTOMIZABLE: Post-send completion delay
             
         on error errMsg
-            -- 忽略处理单个页面时可能发生的错误
+            -- Ignore errors that may occur when processing individual pages
         end try
         
-        -- 【临界点】页面间隔，最佳平衡点
-        delay 0.18 -- 临界点完美平衡，避免workflow冲突
+        -- CUSTOMIZABLE: Inter-page interval for optimal performance balance
+        delay 0.18 -- Critical balance point to avoid workflow conflicts
     end repeat
     
-    display notification "已在 " & (count of aiPages) & " 个页面上尝试发送。" with title "任务完成"
+    display notification "Attempted to send on " & (count of aiPages) & " pages." with title "Task Completed"
 end tell
 
 return "Script finished successfully."

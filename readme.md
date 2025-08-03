@@ -53,6 +53,8 @@ An AppleScript-based **Alfred Workflow** containing two simple scripts for batch
 
 **💡 Note on Input Methods**: I attempted to add an additional process in the script to force macOS to switch to the English input method, but due to my limited knowledge of AppleScript, this proved challenging. However, I discovered that if the snippet in the keystroke is short enough (e.g., `-go`), it prevents text expanding trigger issues caused by non-English input methods. Therefore, I recommend keeping the snippet in the keystroke as short as possible.
 
+**⏱️ Note on Script Delays**: Local computer hardware performance and system configuration can affect the timing requirements for script execution. If you find the script executes too quickly causing operation failures, or too slowly affecting efficiency, you can modify the delay times in the script according to your specific situation. All `delay` parameters in the scripts are customizable and should be fine-tuned based on your Mac's performance.
+
 ## ⚙️ Customize Target AI Tools
 
 You can easily modify the `aichatboardcaster-chrome.applescript` to target only specific AI tools instead of broadcasting to all.
@@ -141,6 +143,8 @@ This project is licensed under the MIT License.
   - **发送到终端**: 复制指令到剪贴板，然后在任何地方输入 `=term` 并按空格，脚本将自动在您指定的终端应用中执行命令。
 
 **💡 关于输入法的补充说明**: 我曾试图通过在脚本中增加一个额外的过程来让Mac系统强制切换到英文输入法，但是由于我对AppleScript知之甚少，这事对我来说并不容易。不过我发现，似乎只要keystroke中的snippet长度足够短（例如`-go`），就不会让中文输入法导致text expanding触发混乱，所以我推荐keystroke中的snippet越短越好。
+
+**⏱️ 关于脚本延迟的补充说明**: 本地电脑的硬件性能和系统配置会导致脚本执行的延迟需求不同。如果您发现脚本执行过快导致操作失败，或执行过慢影响效率，可以根据自身情况修改脚本中的延迟时间。脚本中的`delay`参数都是可以自定义调整的，建议根据您的Mac性能进行微调。
 
 ## ⚙️ 定制目标AI工具
 
