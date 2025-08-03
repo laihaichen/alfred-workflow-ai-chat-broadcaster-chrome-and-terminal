@@ -1,4 +1,7 @@
-# AI Chat Broadcaster 🚀
+![AI Chatbot Broadcaster](pic_in_readme.png)
+
+# Alfred Workflow: AI Chatbot Broadcaster
+*Automated Multi-Platform AI Chat Template Sender*
 
 An AppleScript-based **Alfred Workflow** containing two simple scripts for batch-sending messages to multiple AI chat platforms. You can easily extend this workflow to dozens or hundreds of scripts using different triggers (hotkeys, keywords, shortcuts, etc.), freely combining custom prompts with various batch-sending targets to create complex automation workflows. The two scripts provided are basic demonstrations of this concept.
 
@@ -8,14 +11,14 @@ An AppleScript-based **Alfred Workflow** containing two simple scripts for batch
 
 **When It Might Help**: When switching between browser tabs feels tedious, or when you want to make better use of your existing AI chat service subscriptions. However, it has many limitations, requires macOS and Alfred, and may only suit specific use cases.
 
-## ✨ Core Features
+## Core Features
 
-  - **🎯 Chrome Broadcasting**: The `aichatboardcaster-chrome.applescript` script can operate simultaneously on multiple AI tabs in Chrome (e.g., ChatGPT, Claude, Gemini).
-  - **⌨️ Terminal Control**: The `aichatboardcaster-terminal.applescript` script can send commands to your specified terminal app (e.g., Claude Code or Gemini CLI).
-  - **🔧 Highly Customizable**: You can easily modify the script to target specific AI tools, configure various trigger methods (hotkeys, keywords, shortcuts, etc.), and customize the entire automation workflow.
-  - **🔄 Alfred Integration**: Can work with various Alfred features including Snippet expansion, clipboard history, direct content insertion, and more.
+  - **Chrome Broadcasting**: The `aichatboardcaster-chrome.applescript` script can operate simultaneously on multiple AI tabs in Chrome (e.g., ChatGPT, Claude, Gemini).
+  - **Terminal Control**: The `aichatboardcaster-terminal.applescript` script can send commands to your specified terminal app (e.g., Claude Code or Gemini CLI).
+  - **Highly Customizable**: You can easily modify the script to target specific AI tools, configure various trigger methods (hotkeys, keywords, shortcuts, etc.), and customize the entire automation workflow.
+  - **Alfred Integration**: Can work with various Alfred features including Snippet expansion, clipboard history, direct content insertion, and more.
 
-## 🔧 Prerequisites
+## Prerequisites
 
 1.  A **macOS** operating system.
 2.  **Google Chrome** browser.
@@ -25,7 +28,7 @@ An AppleScript-based **Alfred Workflow** containing two simple scripts for batch
       * In Google Chrome, click on the menu bar at the very top of the screen.
       * Navigate to **View → Developer → Allow JavaScript from Apple Events** and ensure this option is checked.
 
-## 📦 Installation & Configuration
+## Installation & Configuration
 
 1.  **Import the Workflow**:
 
@@ -54,7 +57,7 @@ An AppleScript-based **Alfred Workflow** containing two simple scripts for batch
       * Simply copy the content you want to send to the clipboard, then use your workflow trigger.
       * Can be combined with Alfred's clipboard history feature for flexible multi-content usage.
 
-## 🚀 Usage
+## Usage
 
 Usage depends on your configured trigger type:
 
@@ -69,11 +72,11 @@ Usage depends on your configured trigger type:
 **Method 3 - Alfred Interface Trigger**:
   - Open Alfred search interface and type your configured keyword to launch the corresponding script.
 
-**💡 Note on Input Methods** (only applies when using Snippet expansion): When using keyword triggers with Snippet expansion functionality, it's recommended to switch to English input method for stable triggering. I attempted to add functionality to force English input method switching in the script, but technical limitations prevented implementation. However, I found that shorter snippet keywords (e.g., `-go`) have better compatibility with non-English input methods. **Note: Hotkey trigger methods don't require input method considerations.**
+**Note on Input Methods** (only applies when using Snippet expansion): When using keyword triggers with Snippet expansion functionality, it's recommended to switch to English input method for stable triggering. I attempted to add functionality to force English input method switching in the script, but technical limitations prevented implementation. However, I found that shorter snippet keywords (e.g., `-go`) have better compatibility with non-English input methods. **Note: Hotkey trigger methods don't require input method considerations.**
 
-**⏱️ Note on Script Delays**: Local computer hardware performance and system configuration can affect the timing requirements for script execution. If you find the script executes too quickly causing operation failures, or too slowly affecting efficiency, you can modify the delay times in the script according to your specific situation. All `delay` parameters in the scripts are customizable and should be fine-tuned based on your Mac's performance.
+**Note on Script Delays**: Local computer hardware performance and system configuration can affect the timing requirements for script execution. If you find the script executes too quickly causing operation failures, or too slowly affecting efficiency, you can modify the delay times in the script according to your specific situation. All `delay` parameters in the scripts are customizable and should be fine-tuned based on your Mac's performance.
 
-## ⚙️ Customize Target AI Tools
+## Customize Target AI Tools
 
 You can easily modify the `aichatboardcaster-chrome.applescript` to target only specific AI tools instead of broadcasting to all.
 
@@ -91,23 +94,24 @@ if tabURL contains "chatgpt.com" or tabURL contains "claude.ai" then
 
 You can customize this list as needed, or leave only one to target a single platform.
 
-## 📁 Repository Notes
+## Repository Notes
 
 The `Authors_Private_Storage` folder in this repository serves as the author's personal storage space. Since this is a niche project with limited visibility, the author uses it to store personal `.alfredworkflow` and `.alfredsnippets` files for convenience.
 
-## 📝 License
+## License
 
 This project is licensed under the MIT License.
 
 -----
 
-🤖 *Built for AI-powered productivity.*
+*Built for AI-powered productivity.*
 
 -----
 
 -----
 
-# AI Chat Broadcaster 🚀
+# Alfred Workflow: AI Chatbot Broadcaster
+*自动化多平台AI聊天模板发送器*
 
 一个基于AppleScript的**Alfred工作流**，包含两个简单的脚本，用于批量向多个AI聊天平台发送消息。您完全可以利用Alfred工作流把这两个脚本扩展到几十上百个，并且使用不同的触发器（快捷键、关键字、热键等）触发，将不同的自定义prompt和任何批量发送的目标自由组合，实现复杂的自动化流程。提供的两个脚本只是为了简单演示这个概念。
 
@@ -117,14 +121,14 @@ This project is licensed under the MIT License.
 
 **适用情况**：当您觉得在浏览器标签页间切换比较麻烦，或者想要充分利用已有的AI聊天服务订阅时，这个小工具可能会有些帮助。不过它的限制较多，需要macOS和Alfred，可能只适合特定的使用场景。
 
-## ✨ 核心功能
+## 核心功能
 
-  - **🎯 Chrome广播**: `aichatboardcaster-chrome.applescript` 脚本可以同时在Chrome中的多个AI标签页上工作（如ChatGPT, Claude, Gemini等）。
-  - **⌨️ 终端控制**: `aichatboardcaster-terminal.applescript` 脚本可以将指令发送到您指定的终端应用（Claude Code or Gemini CLI)”）。
-  - **🔧 高度可定制**: 您可以轻松修改脚本，决定目标AI工具，配置各种触发方式（快捷键、关键字、热键等），以及定制整个自动化工作流程。
-  - **🔄 Alfred集成**: 可与Alfred的各种功能配合使用，包括Snippet展开、剪贴板历史、或直接内容插入等多种方式。
+  - **Chrome广播**: `aichatboardcaster-chrome.applescript` 脚本可以同时在Chrome中的多个AI标签页上工作（如ChatGPT, Claude, Gemini等）。
+  - **终端控制**: `aichatboardcaster-terminal.applescript` 脚本可以将指令发送到您指定的终端应用（Claude Code or Gemini CLI)”）。
+  - **高度可定制**: 您可以轻松修改脚本，决定目标AI工具，配置各种触发方式（快捷键、关键字、热键等），以及定制整个自动化工作流程。
+  - **Alfred集成**: 可与Alfred的各种功能配合使用，包括Snippet展开、剪贴板历史、或直接内容插入等多种方式。
 
-## 🔧 使用前提
+## 使用前提
 
 1.  **macOS** 操作系统。
 2.  **Google Chrome** 浏览器。
@@ -134,7 +138,7 @@ This project is licensed under the MIT License.
       * 在Chrome中，点击屏幕最上方的菜单栏。
       * 转到 **查看 → 开发者 → 允许 Apple 事件中的 JavaScript**，并确保该选项已被勾选。
 
-## 📦 安装与配置
+## 安装与配置
 
 1.  **导入工作流**:
 
@@ -163,7 +167,7 @@ This project is licensed under the MIT License.
       * 直接复制要发送的内容到剪贴板，然后使用工作流触发器即可。
       * 可配合Alfred的clipboard history功能实现多段内容的灵活使用。
 
-## 🚀 使用方法
+## 使用方法
 
 使用方法取决于您配置的触发器类型：
 
@@ -178,11 +182,11 @@ This project is licensed under the MIT License.
 **方式三 - Alfred界面触发**:
   - 打开Alfred搜索界面，输入配置的关键字来启动相应脚本。
 
-**💡 关于输入法的补充说明**（仅适用于使用Snippet展开的情况）: 当使用关键字触发并配合Snippet展开功能时，建议切换到英文输入法以确保触发稳定。我曾试图通过在脚本中增加强制切换英文输入法的功能，但由于技术限制未能实现。不过发现snippet关键词越短（例如`-go`），在中文输入法下的兼容性越好。**注意：使用快捷键触发的方式无需考虑输入法问题。**
+**关于输入法的补充说明**（仅适用于使用Snippet展开的情况）: 当使用关键字触发并配合Snippet展开功能时，建议切换到英文输入法以确保触发稳定。我曾试图通过在脚本中增加强制切换英文输入法的功能，但由于技术限制未能实现。不过发现snippet关键词越短（例如`-go`），在中文输入法下的兼容性越好。**注意：使用快捷键触发的方式无需考虑输入法问题。**
 
-**⏱️ 关于脚本延迟的补充说明**: 本地电脑的硬件性能和系统配置会导致脚本执行的延迟需求不同。如果您发现脚本执行过快导致操作失败，或执行过慢影响效率，可以根据自身情况修改脚本中的延迟时间。脚本中的`delay`参数都是可以自定义调整的，建议根据您的Mac性能进行微调。
+**关于脚本延迟的补充说明**: 本地电脑的硬件性能和系统配置会导致脚本执行的延迟需求不同。如果您发现脚本执行过快导致操作失败，或执行过慢影响效率，可以根据自身情况修改脚本中的延迟时间。脚本中的`delay`参数都是可以自定义调整的，建议根据您的Mac性能进行微调。
 
-## ⚙️ 定制目标AI工具
+## 定制目标AI工具
 
 您可以轻松修改 `aichatboardcaster-chrome.applescript` 脚本，使其只对特定的AI工具生效，实现“精确弹射”而不是“全体广播”。
 
@@ -198,12 +202,12 @@ if tabURL contains "aistudio.google.com" or tabURL contains "chatgpt.com" or tab
 if tabURL contains "chatgpt.com" or tabURL contains "claude.ai" then
 ```
 
-## 📁 仓库说明
+## 仓库说明
 
 本仓库中的`Authors_Private_Storage`文件夹是作者的私人存放点。由于这是一个冷门项目，作者懒得分公私，直接用这里存放个人的`.alfredworkflow`和`.alfredsnippets`文件。
 
-## 📝 许可
+## 许可
 
 本项目采用 MIT 许可。
 
-🤖 *为AI驱动的生产力而生*
+*为AI驱动的生产力而生*
