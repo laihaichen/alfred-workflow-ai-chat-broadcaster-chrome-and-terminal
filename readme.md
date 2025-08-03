@@ -91,7 +91,7 @@ Usage depends on your configured trigger type:
 **Other Methods**:
   - Any other trigger methods available in Alfred workflows can work.
 
-**Note on Input Methods**: All trigger methods may have input method issues with Snippet expansion. It's recommended to switch to English input method for stable triggering. I attempted to add functionality to force English input method switching in the script, but technical limitations prevented implementation. However, I found that shorter snippet keywords (e.g., `-go`) have better compatibility with non-English input methods.
+**Note on Input Methods**: For best stability, it's recommended to use English input method, though Chinese input method typically works fine as well.
 
 **Note on Script Delays**: Local computer hardware performance and system configuration can affect the timing requirements for script execution. If you find the script executes too quickly causing operation failures, or too slowly affecting efficiency, you can modify the delay times in the script according to your specific situation. All `delay` parameters in the scripts are customizable and should be fine-tuned based on your Mac's performance.
 
@@ -185,7 +185,7 @@ This project is licensed under the MIT License.
 **其他方法**:
   - 任何其他在workflow中可用的触发方式都可以工作。
 
-**关于输入法的补充说明**: 所有触发方式在Snippet展开时都可能存在输入法问题，建议切换到英文输入法以确保触发稳定。我曾试图通过在脚本中增加强制切换英文输入法的功能，但由于技术限制未能实现。不过发现snippet关键词越短（例如`-go`），在中文输入法下的兼容性越好。
+**关于输入法的补充说明**: 为了获得最佳稳定性，建议在使用时切换到英文输入法，不过中文输入法通常也能正常工作。
 
 **关于脚本延迟的补充说明**: 本地电脑的硬件性能和系统配置会导致脚本执行的延迟需求不同。如果您发现脚本执行过快导致操作失败，或执行过慢影响效率，可以根据自身情况修改脚本中的延迟时间。脚本中的`delay`参数都是可以自定义调整的，建议根据您的Mac性能进行微调。
 
