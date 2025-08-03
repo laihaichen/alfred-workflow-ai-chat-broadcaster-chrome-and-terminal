@@ -51,6 +51,8 @@ An AppleScript-based **Alfred Workflow** containing two simple scripts for batch
   - **Broadcast to Chrome**: Copy a message to your clipboard, then type `=go` anywhere and press space. **Important: Make sure to switch to English input method first!** The script will automatically perform its tasks on all eligible AI pages in Chrome. (Note: This must be typed in a text input field of other applications, not in Alfred's own search window)
   - **Send to Terminal**: Copy a command to your clipboard, then type `=term` anywhere and press space. The script will automatically execute the command in your terminal app.
 
+**💡 Note on Input Methods**: I attempted to add an additional process in the script to force macOS to switch to the English input method, but due to my limited knowledge of AppleScript, this proved challenging. However, I discovered that if the snippet in the keystroke is short enough (e.g., `-go`), it prevents text expanding trigger issues caused by non-English input methods. Therefore, I recommend keeping the snippet in the keystroke as short as possible.
+
 ## ⚙️ Customize Target AI Tools
 
 You can easily modify the `aichatboardcaster-chrome.applescript` to target only specific AI tools instead of broadcasting to all.
@@ -137,6 +139,8 @@ This project is licensed under the MIT License.
 
   - **广播到Chrome**: 复制消息到剪贴板，然后在任何地方输入 `=go` 并按空格。**重要提示：请先切换到英文输入法！** 脚本将自动在Chrome中所有符合条件的AI页面上执行任务。（注意：必须在其他应用程序的文本输入框中输入，不能在Alfred的搜索窗口中输入）
   - **发送到终端**: 复制指令到剪贴板，然后在任何地方输入 `=term` 并按空格，脚本将自动在您指定的终端应用中执行命令。
+
+**💡 关于输入法的补充说明**: 我曾试图通过在脚本中增加一个额外的过程来让Mac系统强制切换到英文输入法，但是由于我对AppleScript知之甚少，这事对我来说并不容易。不过我发现，似乎只要keystroke中的snippet长度足够短（例如`-go`），就不会让中文输入法导致text expanding触发混乱，所以我推荐keystroke中的snippet越短越好。
 
 ## ⚙️ 定制目标AI工具
 
