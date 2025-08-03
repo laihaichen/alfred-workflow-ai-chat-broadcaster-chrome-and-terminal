@@ -1,8 +1,8 @@
 # AI Chat Broadcaster 🚀
 
-An AppleScript-based **Alfred Workflow** containing two simple scripts for batch-sending messages to multiple AI chat platforms. You can easily extend this workflow to dozens or hundreds of scripts using different keyword triggers, freely combining custom prompts with various batch-sending targets to create complex automation workflows. The two scripts provided are basic demonstrations of this concept.
+An AppleScript-based **Alfred Workflow** containing two simple scripts for batch-sending messages to multiple AI chat platforms. You can easily extend this workflow to dozens or hundreds of scripts using different triggers (hotkeys, keywords, shortcuts, etc.), freely combining custom prompts with various batch-sending targets to create complex automation workflows. The two scripts provided are basic demonstrations of this concept.
 
-**Basic Idea**: Type a designated shortcut phrase (like `=go`) anywhere you can input text (Notepad, editors, documents, etc.), and the script will first locate specific AI chat interfaces, then simulate physical keyboard input to trigger Alfred's Snippet expansion. The clipboard content serves as a parameter for the template, and users can customize any needed template prompts through Snippets.
+**Basic Idea**: Use Alfred workflow's various triggers (hotkeys, keyword input, shortcuts, etc.) to launch the script, which will first locate specific AI chat interfaces, then send preset template content to multiple AI platforms based on your configuration (can be Alfred's Snippet expansion, direct clipboard content insertion, or other methods). You can flexibly choose trigger methods and content templates to suit different usage scenarios.
 
 **Possible Use**: If you often need to send the same content to multiple AI chat interfaces, this script might reduce repetitive copy-pasting. You can design simple templates (like "Please explain {clipboard}", "Please translate {clipboard}", etc.) and send them to multiple chatbots at once.
 
@@ -12,8 +12,8 @@ An AppleScript-based **Alfred Workflow** containing two simple scripts for batch
 
   - **🎯 Chrome Broadcasting**: The `aichatboardcaster-chrome.applescript` script can operate simultaneously on multiple AI tabs in Chrome (e.g., ChatGPT, Claude, Gemini).
   - **⌨️ Terminal Control**: The `aichatboardcaster-terminal.applescript` script can send commands to your specified terminal app (e.g., Claude Code or Gemini CLI).
-  - **🔧 Highly Customizable**: You can easily modify the script to target specific AI tools, change keystroke keywords to correspond with different snippets, and customize the entire automation workflow.
-  - **🔄 Alfred Integration**: Works with Alfred's Snippet feature to replace a short keyword with your full clipboard content and execute automatically.
+  - **🔧 Highly Customizable**: You can easily modify the script to target specific AI tools, configure various trigger methods (hotkeys, keywords, shortcuts, etc.), and customize the entire automation workflow.
+  - **🔄 Alfred Integration**: Can work with various Alfred features including Snippet expansion, clipboard history, direct content insertion, and more.
 
 ## 🔧 Prerequisites
 
@@ -34,24 +34,42 @@ An AppleScript-based **Alfred Workflow** containing two simple scripts for batch
 2.  **Configure Script Actions**:
 
       * In the Alfred workflow editor, create the "Run Script" actions you need.
-      * Paste the content of `aichatboardcaster-chrome.applescript` into one action and connect it to a trigger (e.g., the **keyword `=go`**).
-      * Paste the content of `aichatboardcaster-terminal.applescript` into another action and connect it to a different trigger (e.g., the **keyword `=term`**).
+      * Paste the content of `aichatboardcaster-chrome.applescript` into one action and connect it to a trigger (e.g., **keyword `=go`**, **hotkey `Cmd+Shift+C`**, or other triggers).
+      * Paste the content of `aichatboardcaster-terminal.applescript` into another action and connect it to a different trigger (e.g., **keyword `=term`**, **hotkey `Cmd+Shift+T`**, or other triggers).
+      * **Important Note**: Alfred workflows support multiple trigger types (hotkeys, keywords, shortcuts, file actions, etc.). Choose the trigger method that best suits your usage habits.
       * **Chain Scripts Together**: If you want one trigger to execute both scripts sequentially (e.g., broadcast the same message to Chrome AI chats first, then to terminal AI agents), connect your trigger to Script 1, then connect Script 1's output to Script 2. This way, the trigger will execute Script 1, and after Script 1 completes, it will automatically trigger Script 2. Theoretically, you could chain multiple scripts (Script 1 → Script 2 → Script 3...) to send multiple rounds of prompts consecutively, but this approach may be unstable since AI response generation speed might not keep up with the script's prompt sending speed. You could try modifying the scripts to add delays and wait longer between executions.
 
-3.  **Configure the Alfred Snippet**:
+3.  **Configure Content Templates** (Optional):
 
+      **Important Note**: Content template configuration is optional and depends on your chosen trigger method and content handling approach.
+      
+      **Option A - Using Alfred Snippet Expansion** (suitable for dynamic content templates):
       * Open Alfred Preferences → Features → Snippets.
       * **IMPORTANT**: Make sure to check "Automatically expand snippets by keyword" option in the Snippets settings.
-      * Create a corresponding snippet with a keyword that is different from your workflow trigger (e.g., use `-go` as the snippet keyword for the `=go` workflow trigger).
-      * **Snippet Content**: `{datetime:long}{clipboard}` — You can customize this to create a unique prompt structure. Just remember that the keystroke command in the AppleScript must be updated to match your snippet's keyword.
-      * **Advanced Usage**: You can enable Alfred's clipboard history feature to use `{clipboard:0}` as the prompt and `{clipboard:1}` as the command prefix, then trigger broadcasts with any designed shortcut phrase (e.g., `=01`).
+      * Create a snippet with a keyword that differs from your workflow trigger (e.g., workflow uses hotkey trigger, snippet uses `-go` keyword).
+      * **Snippet Content**: `{datetime:long}{clipboard}` — You can customize this to create custom prompt templates.
+      * Note: If using this method, ensure the keystroke keyword in the script matches your snippet keyword.
+      
+      **Option B - Direct Clipboard Content** (suitable for hotkey and other non-text triggers):
+      * Simply copy the content you want to send to the clipboard, then use your workflow trigger.
+      * Can be combined with Alfred's clipboard history feature for flexible multi-content usage.
 
 ## 🚀 Usage
 
-  - **Broadcast to Chrome**: Copy a message to your clipboard, then type `=go` anywhere and press space. **Important: Make sure to switch to English input method first!** The script will automatically perform its tasks on all eligible AI pages in Chrome. (Note: This must be typed in a text input field of other applications, not in Alfred's own search window)
-  - **Send to Terminal**: Copy a command to your clipboard, then type `=term` anywhere and press space. The script will automatically execute the command in your terminal app.
+Usage depends on your configured trigger type:
 
-**💡 Note on Input Methods**: I attempted to add an additional process in the script to force macOS to switch to the English input method, but due to my limited knowledge of AppleScript, this proved challenging. However, I discovered that if the snippet in the keystroke is short enough (e.g., `-go`), it prevents text expanding trigger issues caused by non-English input methods. Therefore, I recommend keeping the snippet in the keystroke as short as possible.
+**Method 1 - Hotkey Trigger** (Recommended):
+  - **Broadcast to Chrome**: Copy message to clipboard, then press your configured hotkey (e.g., `Cmd+Shift+C`).
+  - **Send to Terminal**: Copy command to clipboard, then press your configured hotkey (e.g., `Cmd+Shift+T`).
+
+**Method 2 - Keyword Trigger**:
+  - **Broadcast to Chrome**: Copy message to clipboard, then type keyword (e.g., `=go`) in any application's text input field and press space. **Note: Must be typed in other applications' text input fields, not in Alfred's search window.**
+  - **Send to Terminal**: Copy command to clipboard, then type keyword (e.g., `=term`) in any application's text input field and press space.
+
+**Method 3 - Alfred Interface Trigger**:
+  - Open Alfred search interface and type your configured keyword to launch the corresponding script.
+
+**💡 Note on Input Methods** (only applies when using Snippet expansion): When using keyword triggers with Snippet expansion functionality, it's recommended to switch to English input method for stable triggering. I attempted to add functionality to force English input method switching in the script, but technical limitations prevented implementation. However, I found that shorter snippet keywords (e.g., `-go`) have better compatibility with non-English input methods. **Note: Hotkey trigger methods don't require input method considerations.**
 
 **⏱️ Note on Script Delays**: Local computer hardware performance and system configuration can affect the timing requirements for script execution. If you find the script executes too quickly causing operation failures, or too slowly affecting efficiency, you can modify the delay times in the script according to your specific situation. All `delay` parameters in the scripts are customizable and should be fine-tuned based on your Mac's performance.
 
@@ -91,9 +109,9 @@ This project is licensed under the MIT License.
 
 # AI Chat Broadcaster 🚀
 
-一个基于AppleScript的**Alfred工作流**，包含两个简单的脚本，用于批量向多个AI聊天平台发送消息。您完全可以利用Alfred工作流把这两个脚本扩展到几十上百个，并且使用不同的关键字触发器触发，将不同的自定义prompt和任何批量发送的目标自由组合，实现复杂的自动化流程。提供的两个脚本只是为了简单演示这个概念。
+一个基于AppleScript的**Alfred工作流**，包含两个简单的脚本，用于批量向多个AI聊天平台发送消息。您完全可以利用Alfred工作流把这两个脚本扩展到几十上百个，并且使用不同的触发器（快捷键、关键字、热键等）触发，将不同的自定义prompt和任何批量发送的目标自由组合，实现复杂的自动化流程。提供的两个脚本只是为了简单演示这个概念。
 
-**基本想法**：在任何能输入文字的地方（记事本、编辑器、文档等）输入指定的快捷短语（如`=go`），脚本会首先定位到特定的AI聊天界面，然后模拟物理键盘输入来触发Alfred的Snippet展开功能。剪贴板内容作为模板的参数，用户可以通过Snippet自定义任何需要的模板prompt。
+**基本想法**：通过Alfred工作流的各种触发器（快捷键、关键字输入、热键等）来启动脚本，脚本会首先定位到特定的AI聊天界面，然后根据您的配置方式（可以是Alfred的Snippet展开功能，也可以是直接的剪贴板内容插入），将预设的模板内容发送到多个AI平台。您可以灵活选择触发方式和内容模板来适应不同的使用场景。
 
 **可能的用途**：如果您经常需要向多个AI聊天界面发送相同的内容，这个脚本可以减少重复的复制粘贴操作。您可以设计简单的模板（如"请解释{clipboard}"、"请翻译{clipboard}"等），一次性发送给多个聊天机器人。
 
@@ -103,8 +121,8 @@ This project is licensed under the MIT License.
 
   - **🎯 Chrome广播**: `aichatboardcaster-chrome.applescript` 脚本可以同时在Chrome中的多个AI标签页上工作（如ChatGPT, Claude, Gemini等）。
   - **⌨️ 终端控制**: `aichatboardcaster-terminal.applescript` 脚本可以将指令发送到您指定的终端应用（Claude Code or Gemini CLI)”）。
-  - **🔧 高度可定制**: 您可以轻松修改脚本，决定目标AI工具，修改keystroke关键词以对应不同的snippet，以及定制整个自动化工作流程。
-  - **🔄 Alfred集成**: 配合Alfred的Snippet功能，可将简短关键词替换为剪贴板中的完整内容并自动执行。
+  - **🔧 高度可定制**: 您可以轻松修改脚本，决定目标AI工具，配置各种触发方式（快捷键、关键字、热键等），以及定制整个自动化工作流程。
+  - **🔄 Alfred集成**: 可与Alfred的各种功能配合使用，包括Snippet展开、剪贴板历史、或直接内容插入等多种方式。
 
 ## 🔧 使用前提
 
@@ -124,25 +142,43 @@ This project is licensed under the MIT License.
 
 2.  **配置脚本动作**:
 
-      * 在Alfred工作流编辑器中，创建您需要的“Run Script”动作。
-      * 将 `aichatboardcaster-chrome.applescript` 的内容粘贴到一个动作中，并为其绑定一个触发器（例如，**关键字 `=go`**）。
-      * 将 `aichatboardcaster-terminal.applescript` 的内容粘贴到另一个动作中，并为其绑定另一个触发器（例如，**关键字 `=term`**）。
+      * 在Alfred工作流编辑器中，创建您需要的"Run Script"动作。
+      * 将 `aichatboardcaster-chrome.applescript` 的内容粘贴到一个动作中，并为其绑定一个触发器（例如，**关键字 `=go`**、**快捷键 `Cmd+Shift+C`**、或其他触发器）。
+      * 将 `aichatboardcaster-terminal.applescript` 的内容粘贴到另一个动作中，并为其绑定另一个触发器（例如，**关键字 `=term`**、**快捷键 `Cmd+Shift+T`**、或其他触发器）。
+      * **重要提示**: Alfred工作流支持多种触发器类型（快捷键、关键字、热键、文件操作等），您可以根据使用习惯自由选择最适合的触发方式。
       * **脚本串联执行**: 如果你希望让触发器触发两个脚本，例如你想让同一个模版消息在Chrome上的每个AI聊天框先广播一遍，然后给终端的AI agent又广播一遍，那么在Alfred工作流中，你应该让触发器连接脚本1，脚本1连接脚本2，这样触发器触发脚本1，然后脚本1执行完毕之后触发脚本2。如果在工作流中让触发器触发一个脚本，然后在工作流中将脚本1连上脚本2，脚本2连上脚本3... 理论可以实现让脚本发送完一轮prompt，紧接着开始在另一轮发送下一个prompt，然后又开始发送下一个prompt，但是我认为这是不稳定的，因为AI生成内容的速度可能跟不上脚本发prompt的速度，不过你可以试试修改脚本增加延迟，等待的久一点。
 
-3.  **配置Alfred Snippet**:
+3.  **配置内容模板**（可选）:
 
+      **重要说明**: 内容模板配置是可选的，取决于您选择的触发方式和内容处理方式。
+      
+      **选项A - 使用Alfred Snippet展开**（适用于需要动态内容模板的场景）:
       * 打开 Alfred 设置 → Features → Snippets。
       * **重要**: 确保在Snippets设置中勾选"Automatically expand snippets by keyword"选项。
-      * 创建一个Snippet，其关键词必须与工作流触发器的关键词不同（例如，为 `=go` 工作流触发器使用 `-go` 作为Snippet关键词）。
-      * **Snippet内容**: `{datetime:long}{clipboard}`——你可以任意修改这里的内容使得其变成订制prompt，唯一需要注意的是脚本里的keystroke关键词要改成和Snippet里的关键词一样
-      * **高级用法**: 你可以开启Alfred中的clipboard history功能，从而实现让`{clipboard:0}`当作prompt，`{clipboard:1}`当作指令前缀，然后使用设计好的任意快捷短语（例如`=01`）触发广播
+      * 创建一个Snippet，其关键词必须与工作流触发器不同（例如，工作流用快捷键触发，Snippet用 `-go` 关键词）。
+      * **Snippet内容**: `{datetime:long}{clipboard}`——您可以任意修改这里的内容来创建自定义prompt模板。
+      * 注意：如果使用此方式，需要确保脚本中的keystroke关键词与Snippet关键词一致。
+      
+      **选项B - 直接使用剪贴板内容**（适用于快捷键等非文本触发器）:
+      * 直接复制要发送的内容到剪贴板，然后使用工作流触发器即可。
+      * 可配合Alfred的clipboard history功能实现多段内容的灵活使用。
 
 ## 🚀 使用方法
 
-  - **广播到Chrome**: 复制消息到剪贴板，然后在任何地方输入 `=go` 并按空格。**重要提示：请先切换到英文输入法！** 脚本将自动在Chrome中所有符合条件的AI页面上执行任务。（注意：必须在其他应用程序的文本输入框中输入，不能在Alfred的搜索窗口中输入）
-  - **发送到终端**: 复制指令到剪贴板，然后在任何地方输入 `=term` 并按空格，脚本将自动在您指定的终端应用中执行命令。
+使用方法取决于您配置的触发器类型：
 
-**💡 关于输入法的补充说明**: 我曾试图通过在脚本中增加一个额外的过程来让Mac系统强制切换到英文输入法，但是由于我对AppleScript知之甚少，这事对我来说并不容易。不过我发现，似乎只要keystroke中的snippet长度足够短（例如`-go`），就不会让中文输入法导致text expanding触发混乱，所以我推荐keystroke中的snippet越短越好。
+**方式一 - 快捷键触发**（推荐）:
+  - **广播到Chrome**: 复制消息到剪贴板，然后按设定的快捷键（如 `Cmd+Shift+C`）。
+  - **发送到终端**: 复制指令到剪贴板，然后按设定的快捷键（如 `Cmd+Shift+T`）。
+
+**方式二 - 关键字触发**:
+  - **广播到Chrome**: 复制消息到剪贴板，然后在任何应用的文本输入框中输入关键字（如 `=go`）并按空格。**注意：需要在其他应用程序的文本输入框中输入，不能在Alfred的搜索窗口中输入。**
+  - **发送到终端**: 复制指令到剪贴板，然后在任何应用的文本输入框中输入关键字（如 `=term`）并按空格。
+
+**方式三 - Alfred界面触发**:
+  - 打开Alfred搜索界面，输入配置的关键字来启动相应脚本。
+
+**💡 关于输入法的补充说明**（仅适用于使用Snippet展开的情况）: 当使用关键字触发并配合Snippet展开功能时，建议切换到英文输入法以确保触发稳定。我曾试图通过在脚本中增加强制切换英文输入法的功能，但由于技术限制未能实现。不过发现snippet关键词越短（例如`-go`），在中文输入法下的兼容性越好。**注意：使用快捷键触发的方式无需考虑输入法问题。**
 
 **⏱️ 关于脚本延迟的补充说明**: 本地电脑的硬件性能和系统配置会导致脚本执行的延迟需求不同。如果您发现脚本执行过快导致操作失败，或执行过慢影响效率，可以根据自身情况修改脚本中的延迟时间。脚本中的`delay`参数都是可以自定义调整的，建议根据您的Mac性能进行微调。
 
