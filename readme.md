@@ -19,13 +19,13 @@ An AppleScript-based **Alfred Workflow** containing two simple scripts for batch
   - **Chrome Broadcasting**: The `aichatboardcaster-chrome.applescript` script can operate simultaneously on multiple AI tabs in Chrome (e.g., ChatGPT, Claude, Gemini).
   - **Terminal Control**: The `aichatboardcaster-terminal.applescript` script can send commands to your specified terminal app (e.g., Claude Code or Gemini CLI).
   - **Highly Customizable**: You can easily modify the script to target specific AI tools, configure various trigger methods (hotkeys, keywords, shortcuts, etc.), and customize the entire automation workflow.
-  - **Alfred Integration**: Can work with various Alfred features including Snippet expansion, clipboard history, direct content insertion, and more.
+  - **Alfred Integration**: Completely based on and dependent on Alfred's workflow and snippet functionality.
 
 ## Prerequisites
 
 1.  A **macOS** operating system.
-2.  **Google Chrome** browser.
-3.  **Alfred** with the Powerpack.
+2.  **Alfred** with the Powerpack.
+3.  **Google Chrome** browser.
 4.  Permissions granted in `System Settings > Privacy & Security > Automation` for Alfred to control Chrome, your terminal app, and System Events.
 5.  **[IMPORTANT] Enable AppleScript in Chrome**:
       * In Google Chrome, click on the menu bar at the very top of the screen.
@@ -35,7 +35,7 @@ An AppleScript-based **Alfred Workflow** containing two simple scripts for batch
 
 1.  **Import the Workflow**:
 
-      * Download the `aichatboardcaster.alfredworkflow` file and double-click it to import it into Alfred. This workflow includes the `aichatboardcaster-chrome.applescript`, and it's easy to add the terminal script yourself.
+      * Download the `aichatboardcaster.alfredworkflow` file and double-click it to import it into Alfred. This workflow includes the `aichatboardcaster-chrome.applescript`, but you can completely customize various trigger-script connections flexibly using modified versions of `aichatboardcaster-chrome.applescript` and `aichatboardcaster-terminal.applescript`.
 
 2.  **Configure Script Actions**:
 
@@ -59,11 +59,11 @@ Usage depends on your configured trigger type:
 
 **Method 1 - Hotkey Trigger** (Recommended):
   - **Broadcast to Chrome**: Copy message to clipboard, then press your configured hotkey (e.g., `Cmd+Shift+C`).
-  - **Send to Terminal**: Copy command to clipboard, then press your configured hotkey (e.g., `Cmd+Shift+T`).
+  - **Send to Terminal**: Copy message to clipboard, then press your configured hotkey (e.g., `Cmd+Shift+T`).
 
 **Method 2 - Keyword Trigger**:
   - **Broadcast to Chrome**: Copy message to clipboard, then type keyword (e.g., `=go`) in any application's text input field and press space. **Note: Must be typed in other applications' text input fields, not in Alfred's search window.**
-  - **Send to Terminal**: Copy command to clipboard, then type keyword (e.g., `=term`) in any application's text input field and press space.
+  - **Send to Terminal**: Copy message to clipboard, then type keyword (e.g., `=term`) in any application's text input field and press space.
 
 **Method 3 - Alfred Interface Trigger**:
   - Open Alfred search interface and type your configured keyword to launch the corresponding script.
@@ -74,19 +74,7 @@ Usage depends on your configured trigger type:
 
 ## Customize Target AI Tools
 
-You can easily modify the `aichatboardcaster-chrome.applescript` to target only specific AI tools instead of broadcasting to all.
-
-Open the script and find this line:
-
-```applescript
-if tabURL contains "aistudio.google.com" or tabURL contains "chatgpt.com" or tabURL contains "claude.ai" or tabURL contains "gemini.google.com" then
-```
-
-**Example Modification**: If you only want it to work on ChatGPT and Claude, simply remove the other conditions:
-
-```applescript
-if tabURL contains "chatgpt.com" or tabURL contains "claude.ai" then
-```
+You can modify the script content to add or remove AI tools by finding `if tabURL contains...` and modifying the matching information. Another important part is `keystroke "-go" -- CUSTOMIZABLE: Change to match your Alfred snippet keyword`. Modify the information after keystroke to match any keyword defined in Features → Snippets.
 
 You can customize this list as needed, or leave only one to target a single platform.
 
@@ -125,13 +113,13 @@ This project is licensed under the MIT License.
   - **Chrome广播**: `aichatboardcaster-chrome.applescript` 脚本可以同时在Chrome中的多个AI标签页上工作（如ChatGPT, Claude, Gemini等）。
   - **终端控制**: `aichatboardcaster-terminal.applescript` 脚本可以将指令发送到您指定的终端应用（Claude Code or Gemini CLI)”）。
   - **高度可定制**: 您可以轻松修改脚本，决定目标AI工具，配置各种触发方式（快捷键、关键字、热键等），以及定制整个自动化工作流程。
-  - **Alfred集成**: 可与Alfred的各种功能配合使用，包括Snippet展开、剪贴板历史、或直接内容插入等多种方式。
+  - **Alfred集成**: 完全基于和依赖Alfred的工作流和snippet功能。
 
 ## 使用前提
 
 1.  **macOS** 操作系统。
-2.  **Google Chrome** 浏览器。
-3.  **Alfred** 并激活Powerpack功能。
+2.  **Alfred** 并激活Powerpack功能。
+3.  **Google Chrome** 浏览器。
 4.  在“系统设置 \> 隐私与安全性 \> 自动化”中授予Alfred控制Chrome、终端以及System Events的权限。
 5.  **【重要】开启Chrome的AppleScript权限**:
       * 在Chrome中，点击屏幕最上方的菜单栏。
@@ -141,7 +129,7 @@ This project is licensed under the MIT License.
 
 1.  **导入工作流**:
 
-      * 下载 `aichatboardcaster.alfredworkflow` 文件并双击导入到Alfred中。这个工作流只有aichatboardcaster-chrome.applescript，但是把aichatboardcaster-terminal.applescript加进来很容易
+      * 下载 `aichatboardcaster.alfredworkflow` 文件并双击导入到Alfred中。这个工作流只有aichatboardcaster-chrome.applescript，但是完全可以用aichatboardcaster-chrome.applescript和aichatboardcaster-terminal.applescript的各种修改版本灵活自定义大量的触发器-脚本连接
 
 2.  **配置脚本动作**:
 
@@ -165,11 +153,11 @@ This project is licensed under the MIT License.
 
 **方式一 - 快捷键触发**（推荐）:
   - **广播到Chrome**: 复制消息到剪贴板，然后按设定的快捷键（如 `Cmd+Shift+C`）。
-  - **发送到终端**: 复制指令到剪贴板，然后按设定的快捷键（如 `Cmd+Shift+T`）。
+  - **发送到终端**: 复制消息到剪贴板，然后按设定的快捷键（如 `Cmd+Shift+T`）。
 
 **方式二 - 关键字触发**:
   - **广播到Chrome**: 复制消息到剪贴板，然后在任何应用的文本输入框中输入关键字（如 `=go`）并按空格。**注意：需要在其他应用程序的文本输入框中输入，不能在Alfred的搜索窗口中输入。**
-  - **发送到终端**: 复制指令到剪贴板，然后在任何应用的文本输入框中输入关键字（如 `=term`）并按空格。
+  - **发送到终端**: 复制消息到剪贴板，然后在任何应用的文本输入框中输入关键字（如 `=term`）并按空格。
 
 **方式三 - Alfred界面触发**:
   - 打开Alfred搜索界面，输入配置的关键字来启动相应脚本。
@@ -180,19 +168,7 @@ This project is licensed under the MIT License.
 
 ## 定制目标AI工具
 
-您可以轻松修改 `aichatboardcaster-chrome.applescript` 脚本，使其只对特定的AI工具生效，实现“精确弹射”而不是“全体广播”。
-
-打开脚本，找到这一行：
-
-```applescript
-if tabURL contains "aistudio.google.com" or tabURL contains "chatgpt.com" or tabURL contains "claude.ai" or tabURL contains "gemini.google.com" then
-```
-
-**修改示例**: 如果您只想让它在ChatGPT和Claude上工作，只需删除其他部分：
-
-```applescript
-if tabURL contains "chatgpt.com" or tabURL contains "claude.ai" then
-```
+你可以修改脚本内容来增加或减少AI工具，只需找到`if tabURL contains...`然后修改匹配信息。另一个重要的部分是`keystroke "-go" -- CUSTOMIZABLE: Change to match your Alfred snippet keyword`。修改keystroke后面的信息来和Features → Snippets中定好的任意keyword匹配。
 
 ## 仓库说明
 
