@@ -1,3 +1,18 @@
+```
+    ___    ____               __   _       __           __    ______         
+   /   |  /  _/              / /  | |     / /___  _____/ /__ / __/ /___ _      __
+  / /| |  / /       ______   / /   | | /| / / __ \/ ___/ //_// /_/ / __ \ | /| / /
+ / ___ |_/ /       /_____/  / /    | |/ |/ / /_/ / /  / ,<  / __/ / /_/ / |/ |/ / 
+/_/  |_/___/               /_/     |__/|__/\____/_/  /_/|_|/_/ /_/\____/|__/|__/  
+                                                                                   
+   _____ __          __  __           __     ____                       __               __           
+  / ___// /_  ____ _/ /_/ /_  ____  / /_   / __ )_________  ____ _____/ /_______  _____/ /____  _____
+ / /   / __ \/ __ `/ __/ __ \/ __ \/ __/  / __  / ___/ __ \/ __ `/ __  / ___/ _ \/ ___/ __/ _ \/ ___/
+/ /___/ / / / /_/ / /_/ /_/ / /_/ / /_   / /_/ / /  / /_/ / /_/ / /_/ / /__/ ___(__  ) /_/  __/ /    
+\____/_/ /_/\__,_/\__/_.___/\____/\__/  /_____/_/   \____/\__,_/\__,_/\___/\___/____/\__/\___/_/     
+                                                                                                       
+```
+
 ![AI Chatbot Broadcaster](pic_in_readme.png)
 
 # Alfred Workflow: AI Chatbot Broadcaster
@@ -57,7 +72,7 @@ An AppleScript-based **Alfred Workflow** containing two simple scripts for batch
 
 Usage depends on your configured trigger type:
 
-**Method 1 - Hotkey Trigger** (Recommended):
+**Method 1 - Hotkey Trigger**:
   - **Broadcast to Chrome**: Copy message to clipboard, then press your configured hotkey (e.g., `Cmd+Shift+C`).
   - **Send to Terminal**: Copy message to clipboard, then press your configured hotkey (e.g., `Cmd+Shift+T`).
 
@@ -68,7 +83,7 @@ Usage depends on your configured trigger type:
 **Method 3 - Alfred Interface Trigger**:
   - Open Alfred search interface and type your configured keyword to launch the corresponding script.
 
-**Note on Input Methods** (only applies when using Snippet expansion): When using keyword triggers with Snippet expansion functionality, it's recommended to switch to English input method for stable triggering. I attempted to add functionality to force English input method switching in the script, but technical limitations prevented implementation. However, I found that shorter snippet keywords (e.g., `-go`) have better compatibility with non-English input methods. **Note: Hotkey trigger methods don't require input method considerations.**
+**Note on Input Methods**: All trigger methods may have input method issues with Snippet expansion. It's recommended to switch to English input method for stable triggering. I attempted to add functionality to force English input method switching in the script, but technical limitations prevented implementation. However, I found that shorter snippet keywords (e.g., `-go`) have better compatibility with non-English input methods.
 
 **Note on Script Delays**: Local computer hardware performance and system configuration can affect the timing requirements for script execution. If you find the script executes too quickly causing operation failures, or too slowly affecting efficiency, you can modify the delay times in the script according to your specific situation. All `delay` parameters in the scripts are customizable and should be fine-tuned based on your Mac's performance.
 
@@ -151,7 +166,7 @@ This project is licensed under the MIT License.
 
 使用方法取决于您配置的触发器类型：
 
-**方式一 - 快捷键触发**（推荐）:
+**方式一 - 快捷键触发**:
   - **广播到Chrome**: 复制消息到剪贴板，然后按设定的快捷键（如 `Cmd+Shift+C`）。
   - **发送到终端**: 复制消息到剪贴板，然后按设定的快捷键（如 `Cmd+Shift+T`）。
 
@@ -162,7 +177,7 @@ This project is licensed under the MIT License.
 **方式三 - Alfred界面触发**:
   - 打开Alfred搜索界面，输入配置的关键字来启动相应脚本。
 
-**关于输入法的补充说明**（仅适用于使用Snippet展开的情况）: 当使用关键字触发并配合Snippet展开功能时，建议切换到英文输入法以确保触发稳定。我曾试图通过在脚本中增加强制切换英文输入法的功能，但由于技术限制未能实现。不过发现snippet关键词越短（例如`-go`），在中文输入法下的兼容性越好。**注意：使用快捷键触发的方式无需考虑输入法问题。**
+**关于输入法的补充说明**: 所有触发方式在Snippet展开时都可能存在输入法问题，建议切换到英文输入法以确保触发稳定。我曾试图通过在脚本中增加强制切换英文输入法的功能，但由于技术限制未能实现。不过发现snippet关键词越短（例如`-go`），在中文输入法下的兼容性越好。
 
 **关于脚本延迟的补充说明**: 本地电脑的硬件性能和系统配置会导致脚本执行的延迟需求不同。如果您发现脚本执行过快导致操作失败，或执行过慢影响效率，可以根据自身情况修改脚本中的延迟时间。脚本中的`delay`参数都是可以自定义调整的，建议根据您的Mac性能进行微调。
 
