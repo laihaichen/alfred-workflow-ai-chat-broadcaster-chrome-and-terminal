@@ -3,13 +3,16 @@
 # Alfred Workflow: AI Chatbot Broadcaster
 *One-Click Automated Prompt Sender for Chrome AI Chatbots and Terminal AI Agents*
 
-An AppleScript-based **Alfred Workflow** containing two simple scripts for batch-sending messages to multiple AI chat platforms. You can easily extend this workflow to dozens or hundreds of scripts using different triggers (hotkeys, keywords, shortcuts, etc.), freely combining custom prompts with various batch-sending targets to create complex automation workflows. The two scripts provided are basic demonstrations of this concept.
+An AppleScript-based **Alfred Workflow** containing two simple scripts for batch-sending messages to AI chatbots on Chrome and AI agents in terminal. You can easily extend this workflow to dozens or hundreds of scripts using different triggers (hotkeys, keywords, shortcuts, etc.), freely combining custom prompts with various batch-sending targets to create flexible automation workflows. The two scripts provided are basic demonstrations of this concept.
 
-**Basic Idea**: Use Alfred workflow's various triggers (hotkeys, keyword input, shortcuts, etc.) to launch the script, which will first locate specific AI chat interfaces, then send preset template content to multiple AI platforms based on your configuration (can be Alfred's Snippet expansion, direct clipboard content insertion, or other methods). You can flexibly choose trigger methods and content templates to suit different usage scenarios.
+**Basic Idea**:
+1. First, copy some text to the clipboard
+2. Use quick triggers (hotkeys, keyword input, shortcuts, etc.) to launch the script (you can type keywords in almost any text input field to trigger the script)
+3. The script will automatically complete these operations: open Chrome browser (or terminal), find all qualifying AI chatbots and terminal agents, then send AI prompt template messages that users have pre-bound in workflow and snippets to all chatbots. This process is completed automatically by the computer, making it much faster than manual human operation
 
-**Possible Use**: If you often need to send the same content to multiple AI chat interfaces, this script might reduce repetitive copy-pasting. You can design simple templates (like "Please explain {clipboard}", "Please translate {clipboard}", etc.) and send them to multiple chatbots at once.
+**Possible Use**: If you often need to send the same content to all qualifying chatbots in Chrome browser, or want a faster way to complete the process of — copying information, opening template lists, finding and copying prompt templates from the template list, opening a text box, combining clipboard information with prompt templates, copying, opening Chrome browser, finding chat boxes, pasting and sending, then finding the next chat box, pasting and sending, then... This process can be simplified by Alfred workflow to: copy information → hotkey → automatically trigger everything after that, it will automatically open Chrome browser and complete all remaining operations for you.
 
-**When It Might Help**: When switching between browser tabs feels tedious, or when you want to make better use of your existing AI chat service subscriptions. However, it has many limitations, requires macOS and Alfred, and may only suit specific use cases.
+**Prerequisites**: macOS computer, Alfred with workflow and snippet capabilities, Chrome browser.
 
 ## Core Features
 
@@ -106,13 +109,16 @@ This project is licensed under the MIT License.
 # Alfred Workflow: AI Chatbot Broadcaster
 *一键触发的自动给Chrome上的AI chatbot和终端的AI agent发送prompt的AI聊天prompt自动发送器*
 
-一个基于AppleScript的**Alfred工作流**，包含两个简单的脚本，用于批量向多个AI聊天平台发送消息。您完全可以利用Alfred工作流把这两个脚本扩展到几十上百个，并且使用不同的触发器（快捷键、关键字、热键等）触发，将不同的自定义prompt和任何批量发送的目标自由组合，实现复杂的自动化流程。提供的两个脚本只是为了简单演示这个概念。
+一个基于AppleScript的**Alfred工作流**，包含两个简单的脚本，用于批量向Chrome上的AI chatbot和终端的AI agent发送消息。您完全可以利用Alfred工作流把这两个脚本扩展到几十上百个，并且使用不同的触发器（快捷键、关键字、热键等）触发，将不同的自定义prompt和任何批量发送的目标自由组合，实现灵活的自动化流程。提供的两个脚本只是为了简单演示这个概念。
 
-**基本想法**：通过Alfred工作流的各种触发器（快捷键、关键字输入、热键等）来启动脚本，脚本会首先定位到特定的AI聊天界面，然后根据您的配置方式（可以是Alfred的Snippet展开功能，也可以是直接的剪贴板内容插入），将预设的模板内容发送到多个AI平台。您可以灵活选择触发方式和内容模板来适应不同的使用场景。
+**基本想法**：
+1. 首先复制一段文本到剪贴板
+2. 使用快捷触发器（快捷键、关键字输入、热键等）来启动脚本（您可以在几乎任何能输入文本的地方输入关键词，全都能触发脚本）
+3. 脚本会自动完成这些操作：打开Chrome浏览器（或终端），寻找所有符合条件的AI chatbot和终端agent，然后给所有chatbot发送用户提前在workflow和snippet上绑定的AI prompt模版消息，这个过程是计算机自动完成的，所以比人类手动操作快得多
 
-**可能的用途**：如果您经常需要向多个AI聊天界面发送相同的内容，这个脚本可以减少重复的复制粘贴操作。您可以设计简单的模板（如"请解释{clipboard}"、"请翻译{clipboard}"等），一次性发送给多个聊天机器人。
+**可能的用途**：如果您经常需要向Chrome浏览器所有符合条件的chatbot发送相同的内容，或者希望用更快的方式完成——复制信息、打开模版列表，从模版列表中寻找和复制prompt模版、打开一个文本框，把剪切板信息和prompt模版相结合，复制，打开Chrome浏览器，找到聊天框，黏贴发送，然后找下一个聊天框，黏贴发送，然后...这个过程可以被Alfred工作流简化为：复制信息 → 快捷键 → 自动触发之后所有的一切，它会为你自动打开Chrome浏览器完成一切其余操作。
 
-**适用情况**：当您觉得在浏览器标签页间切换比较麻烦，或者想要充分利用已有的AI聊天服务订阅时，这个小工具可能会有些帮助。不过它的限制较多，需要macOS和Alfred，可能只适合特定的使用场景。
+**前置条件**：macOS电脑，能使用工作流和snippet的Alfred，Chrome浏览器。
 
 ## 核心功能
 
