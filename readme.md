@@ -1,7 +1,7 @@
 ![AI Chatbot Broadcaster](pic_in_readme.png)
 
 # Alfred Workflow: AI Chatbot Broadcaster
-*Automated Multi-Platform AI Chat Template Sender*
+*One-Click Automated Prompt Sender for Chrome AI Chatbots and Terminal AI Agents*
 
 An AppleScript-based **Alfred Workflow** containing two simple scripts for batch-sending messages to multiple AI chat platforms. You can easily extend this workflow to dozens or hundreds of scripts using different triggers (hotkeys, keywords, shortcuts, etc.), freely combining custom prompts with various batch-sending targets to create complex automation workflows. The two scripts provided are basic demonstrations of this concept.
 
