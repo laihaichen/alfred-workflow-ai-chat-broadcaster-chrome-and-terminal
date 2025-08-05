@@ -28,7 +28,7 @@ try
         -- 3. Input command
         -- CUSTOMIZABLE: Change "-go" to match your Alfred snippet keyword
         keystroke "-go"
-        delay 0.1 -- CUSTOMIZABLE: Snippet expansion wait time
+        delay 0.3 -- CUSTOMIZABLE: Snippet expansion wait time
         
         -- 4. Press Enter key to send/execute command
         key code 36 -- Return key code

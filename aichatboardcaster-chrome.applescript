@@ -70,7 +70,7 @@ tell application "Google Chrome"
                 delay 0.075 -- CUSTOMIZABLE: Critical workflow balance interval
             end tell
             
-            delay 0.15 -- CUSTOMIZABLE: Snippet expansion wait time
+            delay 0.3 -- CUSTOMIZABLE: Snippet expansion wait time
             
             -- 6. Use JavaScript with intelligent waiting to find and click send button
             -- CUSTOMIZABLE: Add selectors for additional AI platforms
